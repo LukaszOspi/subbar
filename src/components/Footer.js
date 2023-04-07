@@ -1,14 +1,16 @@
 // Footer.js
 import React from "react";
 import "./styles.css";
+import Business from "./../assets/business.svg";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-top">
         <h3 className="footer-header">
-          WE ALWAYS SEEK FOR NEW ADVENTURES LET'S DO BUSINESS
+          <img src={Business} alt="Let's do business" />
         </h3>
+        */
         <div className="contact-us-container">
           <button className="contact-us">CONTACT US</button>
         </div>

@@ -3,6 +3,7 @@ p {
   font-family: "Inter", sans-serif;
   font-size: 1.2rem;
 }
+
 /* HEADER */
 
 .header {
@@ -11,7 +12,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1400px;
+  width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -19,6 +20,9 @@ p {
 .header-left {
   display: flex;
   align-items: center;
+}
+.header-right {
+  padding-right: 2rem;
 }
 
 .logo,
@@ -28,6 +32,17 @@ p {
 
 .date {
   font-size: 1rem;
+}
+
+/* WELCOME */
+
+.welcome-container {
+  position: relative;
+}
+
+.welcome-image {
+  width: 100%;
+  display: block;
 }
 
 /* FOOTER */
@@ -51,6 +66,9 @@ p {
 
 .footer-header {
   font-family: "Inter", sans-serif;
+  color: #e5e548;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
   font-style: normal;
   font-weight: 700;
   font-size: 6rem;
@@ -69,6 +87,7 @@ p {
 
 .contact-us {
   background-color: white;
+  border-width: 0px;
   border-radius: 50%;
   padding: 20px;
   font-weight: bold;
@@ -97,4 +116,173 @@ p {
   justify-content: space-between;
   width: 50%;
   margin-top: 20px;
+}
+
+/* YOUTUBEVIDEO */
+.video-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  height: 30%;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* LATEST PROJECTS */
+
+.latest-projects-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.latest-projects-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* PROJECT */
+.card {
+  max-width: 550px;
+  padding: 1rem;
+}
+
+.card-image-container {
+  position: relative;
+  z-index: 1;
+}
+.card-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+}
+
+.index-number {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  font-size: 10.5rem;
+  transform: rotate(270deg);
+  color: white;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #e5e548;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: white;
+  padding: 1rem 0;
+}
+
+.card-event-production {
+  font-size: 1rem;
+  color: grey;
+}
+
+.card-location {
+  display: inline;
+  font-size: 1rem;
+  color: white;
+}
+
+.yellow-dot {
+  display: inline;
+  width: 1rem;
+  height: 1rem;
+  background-color: #e5e548;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .header-right {
+    padding-right: 0;
+  }
+
+  .footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .footer-top,
+  .footer-middle,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card {
+    max-width: 288px;
+  }
+
+  .card-image {
+    max-height: 376px;
+  }
+
+  .card-image img {
+    width: 100%;
+  }
+
+  .index-number {
+    font-size: 6rem;
+    bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .latest-projects-content {
+    flex-direction: column;
+  }
+
+  .welcome-image {
+    width: 100%;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    height: auto;
+  }
 }

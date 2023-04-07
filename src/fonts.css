@@ -1,0 +1,23 @@
+/* Import Inter Regular */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/static/Inter-Black.ttf") format("truetype");
+}
+
+/* Import Inter Bold */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/static/Inter-Bold.ttf") format("truetype");
+}
+
+/* Import Inter Thin */
+@font-face {
+  font-family: "Inter";
+  font-style: thin;
+  font-weight: 400;
+  src: url("./fonts/static/Inter-Thin.ttf") format("truetype");
+}
