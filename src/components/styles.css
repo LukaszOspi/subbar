@@ -118,6 +118,34 @@ p {
   margin-top: 20px;
 }
 
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.footer a:hover,
+.footer a:focus,
+.footer a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.column p {
+  margin: 0;
+  margin-bottom: 0.75em;
+}
+
+.column p:last-child {
+  margin-bottom: 0;
+}
+
 /* YOUTUBEVIDEO */
 .video-wrapper {
   position: absolute;
@@ -218,7 +246,135 @@ p {
   margin-right: 0.5rem;
 }
 
-/* Responsive styles for mobile */
+/* SIDE MENU */
+
+/* SideMenu.css */
+.menu-button {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  background-color: #000;
+  transition: all 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.menu-button.open .hamburger {
+  background-color: transparent;
+}
+
+.menu-button.open .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button.open .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.menu-links {
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+.menu-links a,
+.menu-links p {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+}
+
+.menu-links a:hover,
+.menu-links a:focus {
+  color: #e5e548;
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #e5e548;
+}
+
+.menu-links a::before,
+.menu-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #e5e548;
+  visibility: hidden;
+  transform: scaleX(1.5);
+  transition: all 0.3s;
+}
+
+.menu-links a::before {
+  top: 0;
+  left: 0;
+  transform-origin: left;
+}
+
+.menu-links a::after {
+  bottom: 0;
+  right: 0;
+  transform-origin: right;
+}
+
+.menu-links a:hover::before,
+.menu-links a:hover::after,
+.menu-links a:focus::before,
+.menu-links a:focus::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.social-links {
+  /* Add styles for the social links container here */
+}
+
+.graphics {
+  /* Add styles for the graphics container here */
+}
+
+/* responsive styles for mobile */
 @media (max-width: 768px) {
   img {
     width: 100%;
@@ -284,5 +440,14 @@ p {
   .video-wrapper {
     width: 100%;
     height: auto;
+  }
+  .menu-button {
+    top: 16px;
+    left: auto;
+    right: 16px;
+  }
+
+  .menu-links {
+    font-size: 2.5rem;
   }
 }

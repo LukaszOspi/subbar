@@ -1,6 +1,4 @@
-// Header.js
 import React from "react";
-import SubLogo from "./../assets/sub_logo 1.svg";
 import SubBar from "./../assets/subbar.svg";
 import "./styles.css";
 
@@ -16,7 +14,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
-        <img className="logo" src={SubLogo} alt="Logo" />
         <img className="graphic" src={SubBar} alt="Graphic" />
       </div>
       <div className="header-right">

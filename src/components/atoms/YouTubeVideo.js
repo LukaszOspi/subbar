@@ -10,9 +10,9 @@ const YouTubeVideo = ({ videoId }) => {
         className="video-iframe"
         title="YouTube video player"
         src={videoSrc}
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
     </div>
   );

@@ -1,5 +1,6 @@
 // Footer.js
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import Business from "./../assets/business.svg";
 
@@ -10,9 +11,10 @@ const Footer = () => {
         <h3 className="footer-header">
           <img src={Business} alt="Let's do business" />
         </h3>
-        */
         <div className="contact-us-container">
-          <button className="contact-us">CONTACT US</button>
+          <a href="mailto:francesco@subbar.net">
+            <button className="contact-us">CONTACT US</button>
+          </a>
         </div>
       </div>
       <div className="footer-middle">
@@ -27,27 +29,41 @@ const Footer = () => {
         </div>
         <div className="column">
           <p style={{ fontWeight: "bold" }}>BUSINESS</p>
-          <p>info@eufonia.io</p>
+          <a href="mailto:info@eufonia.io">
+            <p>info@eufonia.io</p>
+          </a>
         </div>
         <div className="column">
-          <p>HOME</p>
-          <p>ARTISTS</p>
+          <p>
+            <Link to="/">HOME</Link>
+          </p>
+          <p>
+            <Link to="/artists">ARTISTS</Link>
+          </p>
           <p>SUB_BAR_ACADEMY</p>
-          <p>OPEN_CALL</p>
-          <p>ABOUT_US</p>
-          <p>CONTACT</p>
+          <p>
+            <Link to="/opencall">OPEN_CALL</Link>
+          </p>
+          <p>
+            <Link to="/about">ABOUT_US</Link>
+          </p>
+          <p href="mailto:francesco@subbar.net">CONTACT</p>
         </div>
         <div className="column">
-          <p>Instagram</p>
+          <p>
+            <a href="https://www.instagram.com/subbar.eufonia/?hl=en">
+              Instagram
+            </a>
+          </p>
           <p>Twitter</p>
           <p>LinkedIn</p>
           <p>Facebook</p>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>eufonia.io</p>
-        <p>2022</p>
-        <p>DESIGN BY NEUWEBZ edited by fernanda costa</p>
+        <p>
+          eufonia.io 2022 <br></br> DESIGN BY NEUWEBZ edited by fernanda costa
+        </p>
       </div>
     </div>
   );
