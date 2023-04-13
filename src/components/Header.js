@@ -14,7 +14,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
-        <img className="graphic" src={SubBar} alt="Graphic" />
+        <a href="/">
+          <img className="graphic" src={SubBar} alt="Graphic" />
+        </a>
       </div>
       <div className="header-right">
         <p className="date">{formattedDate}</p>

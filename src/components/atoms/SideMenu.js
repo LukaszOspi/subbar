@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SubLogo from "./../../assets/sub_logo 1.svg";
+import subBarMenu from "./../../assets/sub_bar_menu.svg";
 import "./../styles.css";
 
 const SideMenu = () => {
@@ -54,8 +55,29 @@ const SideMenu = () => {
               CONTACT
             </a>
           </div>
-          <div className="social-links">{/* Add social links here */}</div>
-          <div className="graphics">{/* Add graphics here */}</div>
+          <div className="social-links">
+            <div className="socials">
+              <p style={{ fontWeight: "bold" }}>SOCIALS</p>
+              <div>
+                <p>
+                  <a href="https://www.instagram.com/subbar.eufonia/?hl=en">
+                    Instagram
+                  </a>
+                </p>
+                <p>Twitter</p>
+                <p>LinkedIn</p>
+                <p>Facebook</p>
+              </div>
+            </div>
+            <div className="eufonia-io">
+              <p style={{ fontWeight: "bold" }}> eufonia.io </p>
+              <p>LISBON</p>
+              <p>BERLIN</p>
+              <p>VIENNA</p>
+            </div>
+          </div>
+
+          <img className="subbar-menu" src={subBarMenu} alt="sub-bar" />
         </div>
       )}
     </>

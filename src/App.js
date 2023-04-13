@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import LatestProjects from "./components/LatestProjects";
+import Artists from "./components/Artists";
 import Welcome from "./components/Welcome";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Welcome />} />
+            <Route path="/artists" element={<Artists />} />
           </Routes>
           <Footer />
         </div>
