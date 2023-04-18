@@ -11,15 +11,16 @@ const Footer = () => {
         <h3 className="footer-header">
           <img src={Business} alt="Let's do business" />
         </h3>
-        <div className="contact-us-container">
-          <a href="mailto:francesco@subbar.net">
-            <button className="contact-us">CONTACT US</button>
-          </a>
-        </div>
       </div>
       <div className="footer-middle">
         <div className="column sub-bar">sub_bar</div>
-        <div className="column"></div>
+        <div className="column">
+          <div className="contact-us-container">
+            <a href="mailto:francesco@subbar.net">
+              <button className="contact-us">CONTACT US</button>
+            </a>
+          </div>
+        </div>
         <div className="column">
           <p style={{ fontWeight: "bold" }}>eufonia.io</p>
           <br />

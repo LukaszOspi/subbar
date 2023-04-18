@@ -38,19 +38,32 @@ a {
 }
 
 /* WELCOME */
-
 .welcome-container {
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.welcome-text-container {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+}
+
+.welcome-image-container {
+  z-index: 1;
+  display: flex;
+  justify-content: right;
 }
 
 .welcome-image {
-  width: 100%;
+  width: 40rem;
   display: block;
 }
 
 /* FOOTER */
 .footer {
-  background-color: #e5e548;
+  background-color: white;
   color: black;
   display: flex;
   flex-direction: column;
@@ -89,7 +102,7 @@ a {
 }
 
 .contact-us {
-  background-color: white;
+  background-color: grey;
   border-width: 0px;
   border-radius: 50%;
   padding: 20px;
@@ -202,6 +215,8 @@ a {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
+  width: 35rem;
+  height: 25.5rem;
 }
 
 .card-image img {
@@ -220,7 +235,7 @@ a {
 
 .card-title {
   font-size: 1.5rem;
-  color: #e5e548;
+  color: white;
 }
 
 .card-description {
@@ -421,6 +436,23 @@ a {
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .welcome-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .welcome-text-container {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  .welcome-image {
+    width: 100%;
   }
 
   .card {
