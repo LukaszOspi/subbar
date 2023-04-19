@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Project from "./atoms/Project";
+import Card from "./atoms/Card";
 import ProjectsLogo from "./../assets/latest_projects.svg";
 
 const LatestProjects = () => {
@@ -53,7 +53,8 @@ const LatestProjects = () => {
       </div>
       <div className="latest-projects-content">
         {data.map((item, index) => (
-          <Project
+          <Card
+            number={true}
             key={index}
             index={index + 1}
             image={item.image}

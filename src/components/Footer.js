@@ -1,6 +1,6 @@
 // Footer.js
 import React from "react";
-import { Link } from "react-router-dom";
+
 import "./styles.css";
 import Business from "./../assets/business.svg";
 
@@ -24,33 +24,21 @@ const Footer = () => {
         <div className="column">
           <p style={{ fontWeight: "bold" }}>eufonia.io</p>
           <br />
-          <p>LISBON</p>
-          <p>BERLIN</p>
-          <p>VIENNA</p>
+          <p>lisbon</p>
+          <p>berlin</p>
+          <p>vienna</p>
         </div>
         <div className="column">
-          <p style={{ fontWeight: "bold" }}>BUSINESS</p>
+          <p style={{ fontWeight: "bold" }}>contact</p>
+          <br />
           <a href="mailto:info@eufonia.io">
             <p>info@eufonia.io</p>
           </a>
         </div>
+
         <div className="column">
-          <p>
-            <Link to="/">HOME</Link>
-          </p>
-          <p>
-            <Link to="/artists">ARTISTS</Link>
-          </p>
-          <p>SUB_BAR_ACADEMY</p>
-          <p>
-            <Link to="/opencall">OPEN_CALL</Link>
-          </p>
-          <p>
-            <Link to="/about">ABOUT_US</Link>
-          </p>
-          <p href="mailto:francesco@subbar.net">CONTACT</p>
-        </div>
-        <div className="column">
+          <p style={{ fontWeight: "bold" }}>media</p>
+          <br />
           <p>
             <a href="https://www.instagram.com/subbar.eufonia/?hl=en">
               Instagram
@@ -62,8 +50,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>
-          eufonia.io 2022 <br></br> DESIGN BY NEUWEBZ edited by fernanda costa
+        <p style={{ fontWeight: "500" }}>
+          DESIGN BY NEUWEBZ edited by fernanda costa
         </p>
       </div>
     </div>
