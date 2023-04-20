@@ -6,6 +6,9 @@ import Header from "./components/Header";
 import Artists from "./components/Artists";
 import Welcome from "./components/Welcome";
 import SubBar from "./components/SubBar";
+import OpenCall from "./components/OpenCall";
+import SideMenu from "./components/atoms/SideMenu";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -13,10 +16,13 @@ function App() {
       <Router>
         <div className="app-container">
           <Header />
+          <SideMenu />
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/artists" element={<Artists />} />
             <Route path="/subbar" element={<SubBar />} />
+            <Route path="/opencall" element={<OpenCall />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
           <Footer />
         </div>

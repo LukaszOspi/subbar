@@ -1,5 +1,5 @@
 import React from "react";
-import SideMenu from "./SideMenu";
+
 import YouTubeVideo from "./YouTubeVideo";
 
 const WelcomeSection = ({
@@ -12,7 +12,6 @@ const WelcomeSection = ({
   return (
     <>
       <div className="welcome-container">
-        <SideMenu />
         {welcomeTextImageSrc && (
           <div className="welcome-text-container">
             <img src={welcomeTextImageSrc} alt="Welcome" />
