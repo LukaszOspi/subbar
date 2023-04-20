@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/artists" element={<Artists />} />
-            <Route path="/subbar" element={<SubBar />} />
+            <Route path="/academy" element={<SubBar />} />
             <Route path="/opencall" element={<OpenCall />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
