@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Artists from "./components/Artists";
 import Welcome from "./components/Welcome";
+import SubBar from "./components/SubBar";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/artists" element={<Artists />} />
+            <Route path="/subbar" element={<SubBar />} />
           </Routes>
           <Footer />
         </div>

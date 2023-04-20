@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p style={{ fontWeight: "500" }}>
-          DESIGN BY NEUWEBZ edited by fernanda costa
+          Design by Fernanda, assets from Neuwebz and codetoform
         </p>
       </div>
     </div>

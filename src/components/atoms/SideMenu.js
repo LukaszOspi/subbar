@@ -57,11 +57,15 @@ const SideMenu = () => {
           </div>
           <div className="social-links">
             <div className="socials">
-              <br />
-              <br />
-              <br />
+              <div className={"space-maker"}>
+                <br />
+                <br />
+                <br />
+              </div>
               <p style={{ fontWeight: "bold" }}>SOCIALS</p>
-              <br />
+              <div className="space-maker">
+                <br />
+              </div>
               <div>
                 <p>
                   <a href="https://www.instagram.com/subbar.eufonia/?hl=en">
@@ -71,14 +75,17 @@ const SideMenu = () => {
                 <p>Twitter</p>
                 <p>LinkedIn</p>
                 <p>Facebook</p>
-                <br />
+                <div className="space-maker">
+                  <br />
+                </div>
               </div>
             </div>
 
             <div className="eufonia-io">
               <p style={{ fontWeight: "bold" }}> eufonia.io </p>
-
-              <br />
+              <div className={"space-maker"}>
+                <br />
+              </div>
               <p>LISBON</p>
               <p>BERLIN</p>
               <p>VIENNA</p>

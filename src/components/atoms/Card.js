@@ -1,7 +1,16 @@
 import React from "react";
 import "./../styles.css";
 
-const Card = ({ image, title, description, location, index, number, url }) => {
+const Card = ({
+  image,
+  title,
+  description,
+  secondTitle,
+  location,
+  index,
+  number,
+  url,
+}) => {
   const formattedIndex = String(index).padStart(2, "0");
 
   return (
@@ -16,11 +25,13 @@ const Card = ({ image, title, description, location, index, number, url }) => {
           </a>
         </div>
       </div>
-      <h2 className="card-title">{title}</h2>
-      <p className="card-description">{description}</p>
-      <p className="card-event-production">EVENT PRODUCTION</p>
+      <div className="card-text-container">
+        <h2 className="card-title">{title}</h2>
+        <p className="card-description">{description}</p>
+        <p className="card-event-production">{secondTitle}</p>
 
-      <span className="card-location">{location}</span>
+        <span className="card-location">{location}</span>
+      </div>
     </div>
   );
 };

@@ -51,7 +51,7 @@ const LatestProjects = () => {
       <div className="latest-projects-title">
         <img src={ProjectsLogo} alt="Our Latest Projects" />
       </div>
-      <div className="latest-projects-content">
+      <div className="cards-container">
         {data.map((item, index) => (
           <Card
             number={true}
@@ -61,6 +61,7 @@ const LatestProjects = () => {
             title={item.title}
             description={item.description}
             location={item.location}
+            secondTitle={"EVENT PRODUCTION"}
           />
         ))}
       </div>
