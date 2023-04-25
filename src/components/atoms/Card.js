@@ -14,9 +14,18 @@ const Card = ({
   const formattedIndex = String(index).padStart(2, "0");
 
   const validateUrl = (url) => {
-    if (!url.startsWith("http://") && !url.startsWith("https://")) {
-      return `https://${url}`;
+    const defaultUrl = "#";
+    const httpPrefix = "http://";
+    const httpsPrefix = "https://";
+
+    if (!url) {
+      return defaultUrl;
     }
+
+    if (!url.startsWith(httpPrefix) && !url.startsWith(httpsPrefix)) {
+      return `${httpsPrefix}${url}`;
+    }
+
     return url;
   };
 
