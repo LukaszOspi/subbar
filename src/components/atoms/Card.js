@@ -13,11 +13,20 @@ const Card = ({
 }) => {
   const formattedIndex = String(index).padStart(2, "0");
 
+  const validateUrl = (url) => {
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      return `https://${url}`;
+    }
+    return url;
+  };
+
+  const validatedUrl = validateUrl(url);
+
   return (
     <div className="card">
       <div className="card-image-container">
         <div className="card-image">
-          <a href={url}>
+          <a href={validatedUrl}>
             <img src={image} alt={title} />
             {number ? (
               <span className="index-number">{formattedIndex}</span>

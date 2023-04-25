@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import axios from "axios";
 
@@ -12,25 +13,28 @@ const Artists = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          // TODO: CHANGE FOR ARTISTS API SPACE
           "https://cdn.contentful.com/spaces/5efp2j34tblf/environments/master/entries",
           {
             params: {
               access_token: "Kx6XAVX4jQsvyUT0zSY-9jy_7iE6CC7eQ9t9Sh38yz8",
-              content_type: "projects",
+              content_type: "artists",
             },
           }
         );
 
         const images = createImageObject(response.data.includes.Asset);
         const items = response.data.items.map((item) => {
+          const imageId = item.fields.picture?.sys?.id;
+          const imageUrl = imageId ? images[imageId] : null;
+          console.log("Picture URL:", imageUrl);
           return {
             ...item.fields,
-            image: images[item.fields.image.sys.id],
+            image: imageUrl,
           };
         });
 
         setData(items);
+        console.log("Response:", response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -49,6 +53,8 @@ const Artists = () => {
     return imageObject;
   };
 
+  console.log("Data:", data);
+
   return (
     <>
       <SideMenu />
@@ -59,9 +65,10 @@ const Artists = () => {
             key={index}
             index={index + 1}
             image={item.image}
-            title={item.title}
-            description={item.description}
+            title={item.name}
+            description={documentToReactComponents(item.description)}
             location={item.location}
+            url={item.url}
           />
         ))}
       </div>

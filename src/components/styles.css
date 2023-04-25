@@ -266,7 +266,7 @@ button:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: stretch; /* Add this line */
   padding-bottom: 5rem;
 }
 
@@ -297,6 +297,10 @@ button:hover {
   object-fit: cover;
   min-width: 35rem;
   border-radius: 16px;
+}
+
+.card-text-container {
+  min-height: 150px; /* Add this line */
 }
 
 .index-number {

@@ -62,6 +62,7 @@ const LatestProjects = () => {
             description={item.description}
             location={item.location}
             secondTitle={"EVENT PRODUCTION"}
+            url={item.url}
           />
         ))}
       </div>
