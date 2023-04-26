@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./../styles.css";
 
 const Card = ({
@@ -11,6 +11,7 @@ const Card = ({
   number,
   url,
 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const formattedIndex = String(index).padStart(2, "0");
 
   const validateUrl = (url) => {
@@ -30,7 +31,9 @@ const Card = ({
   };
 
   const validatedUrl = validateUrl(url);
-
+  const handleTextClick = () => {
+    setIsExpanded(!isExpanded);
+  };
   return (
     <div className="card">
       <div className="card-image-container">
@@ -43,12 +46,14 @@ const Card = ({
           </a>
         </div>
       </div>
-      <div className="card-text-container">
+      <div
+        className={`card-text-container ${isExpanded ? "expanded" : ""}`}
+        onClick={handleTextClick}
+      >
         <h2 className="card-title">{title}</h2>
+        <span className="card-location">{location}</span>
         <p className="card-description">{description}</p>
         <p className="card-event-production">{secondTitle}</p>
-
-        <span className="card-location">{location}</span>
       </div>
     </div>
   );

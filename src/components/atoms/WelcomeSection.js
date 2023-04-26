@@ -18,15 +18,20 @@ const WelcomeSection = ({
           </div>
         )}
         {welcomePictureSrc && (
-          <div className="welcome-image-container">
+          <div
+            className="welcome-image-container"
+            style={!welcomeTextImageSrc ? { width: "100%" } : {}}
+          >
             <img
               className="welcome-image"
               src={welcomePictureSrc}
               alt="Graphic"
+              style={!welcomeTextImageSrc ? { width: "100%" } : {}}
             />
           </div>
         )}
       </div>
+
       {(welcomeParagraph || readMoreLink || videoId) && (
         <div className="welcome-second-container">
           {(welcomeParagraph || readMoreLink) && (
