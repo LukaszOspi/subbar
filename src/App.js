@@ -9,6 +9,7 @@ import SubBar from "./components/SubBar";
 import OpenCall from "./components/OpenCall";
 import SideMenu from "./components/atoms/SideMenu";
 import AboutUs from "./components/AboutUs";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/academy" element={<SubBar />} />
             <Route path="/opencall" element={<OpenCall />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
         </div>

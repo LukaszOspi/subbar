@@ -171,7 +171,7 @@ const Artists = () => {
     <>
       <SideMenu />
       <WelcomeSection welcomePictureSrc={ArtistWelcome} />
-      <div className="cards-container">
+      <div className="cards-container artists-cards-container">
         {" "}
         {isMobile() ? renderMobileCards() : renderCards()}
       </div>

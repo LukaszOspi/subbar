@@ -25,7 +25,15 @@ const LatestProjects = () => {
           const { title, description, location, url } = item.fields;
 
           // Extract text content from the description object
-          const descriptionText = description.content[0].content[0].value;
+          const extractText = (contentObject) => {
+            return contentObject.content
+              .map((item) =>
+                item.content.map((subItem) => subItem.value).join(" ")
+              )
+              .join("\n");
+          };
+
+          const descriptionText = extractText(description);
 
           return {
             title: title || "",
@@ -71,7 +79,6 @@ const LatestProjects = () => {
             title={item.title}
             description={item.description}
             location={item.location}
-            secondTitle={"EVENT PRODUCTION"}
             url={item.url}
           />
         ))}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./../styles.css";
+import Background from "./../../assets/BG.svg";
 
 const Card = ({
   image,
@@ -10,6 +11,8 @@ const Card = ({
   index,
   number,
   url,
+  onImageClick,
+  renderButton,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const formattedIndex = String(index).padStart(2, "0");
@@ -34,12 +37,23 @@ const Card = ({
   const handleTextClick = () => {
     setIsExpanded(!isExpanded);
   };
+
+  const handleAnchorClick = (e) => {
+    if (onImageClick) {
+      e.preventDefault();
+      onImageClick();
+    }
+  };
+
   return (
     <div className="card">
       <div className="card-image-container">
         <div className="card-image">
-          <a href={validatedUrl}>
-            <img src={image} alt={title} />
+          <a //eslint-disable-line
+            href={onImageClick ? "#" : validatedUrl} //eslint-disable-line
+            onClick={handleAnchorClick} // eslint-disable-line
+          >
+            <img src={image ? image : Background} alt={title} />
             {number ? (
               <span className="index-number">{formattedIndex}</span>
             ) : null}
@@ -55,6 +69,9 @@ const Card = ({
         <p className="card-description">{description}</p>
         <p className="card-event-production">{secondTitle}</p>
       </div>
+      {renderButton && (
+        <div className="read-more-container">{renderButton}</div>
+      )}
     </div>
   );
 };

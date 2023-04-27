@@ -10,9 +10,10 @@ const Welcome = () => {
       <WelcomeSection
         welcomeTextImageSrc={WelcomeText}
         welcomePictureSrc={WelcomePicture}
-        welcomeParagraph="a playground for sub frequencies and haptic art. with sub_bar, eufonia launches a pioneering series of events exploring music, subfrequencies and the haptic sense, a space that invites everyone to meet, interact and experience music in an innovative, inclusive, and immersive way
-
-"
+        welcomeParagraph="a playground for sub frequencies and haptic art. 
+        with sub_bar, eufonia launches a pioneering series of events exploring music, 
+        subfrequencies and the haptic sense, a space that invites everyone to meet, 
+        interact and experience music in an innovative, inclusive, and immersive way"
         readMoreLink="/read-more"
         videoId="cTn_B2nEObI"
       />

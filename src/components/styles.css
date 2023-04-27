@@ -280,13 +280,17 @@ button:hover {
 }
 
 .nav-button {
+  position: relative;
   background-color: transparent;
 
   border: none;
   font-size: 2rem;
   cursor: pointer;
 }
-
+.artists-cards-container {
+  height: 50rem; /* Adjust this value based on your needs */
+  overflow-y: auto; /* Add a scrollbar if the content overflows the container */
+}
 .page-indicators {
   display: flex;
   justify-content: center;
@@ -315,7 +319,8 @@ button:hover {
 .card {
   max-width: 550px;
   margin: 1rem;
-  height: 60rem;
+  height: auto;
+  padding-bottom: 5rem;
 }
 
 .card-image-container {
@@ -348,9 +353,9 @@ button:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 22; /*Limit to 15 lines */
+  /*-webkit-line-clamp: 22; Limit to 15 lines */
   -webkit-box-orient: vertical;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 .card-text-container.expanded {
   -webkit-line-clamp: unset; /* Remove line limit when expanded */
@@ -358,15 +363,18 @@ button:hover {
   overflow-y: auto;
 }
 .card-text-container.expanded::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
   background-color: transparent;
 }
 
 .card-text-container.expanded::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
 }
 
+.card-text-container.expanded::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 .index-number {
   position: absolute;
   left: 0;
@@ -556,6 +564,125 @@ button:hover {
   color: grey;
 }
 
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  width: 30%;
+  height: 90%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  border-radius: 1rem;
+  position: relative;
+  border-color: #ccc;
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 1px;
+}
+.modal-content::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-image-container {
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.modal-title {
+  font-size: 24px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.modal-description,
+.modal-description-continuation {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-top: 10px;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* responsive styles for mobile */
 @media (max-width: 768px) {
   img {
@@ -723,6 +850,24 @@ button:hover {
   }
   .contact-us-container button {
     background-color: white;
+  }
+
+  .modal-close {
+    top: 0;
+    left: 0;
+    width: 1rem;
+  }
+  .modal-close button {
+    width: 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .modal-content {
+    width: 100%;
+    height: 68%;
+  }
+  .footer-header img {
+    width: 100%;
   }
 }
 @media (max-height: 800px) {

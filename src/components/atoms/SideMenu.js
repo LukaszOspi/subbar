@@ -23,6 +23,15 @@ const SideMenu = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+  /*
+            <Link to="/academy" onClick={toggleMenu}>
+              SUB_BAR ACADEMY
+            </Link>
+
+              <p>LISBON</p>
+              <p>BERLIN</p>
+              <p>VIENNA</p>
+            */
 
   return (
     <>
@@ -41,14 +50,11 @@ const SideMenu = () => {
             <Link to="/artists" onClick={toggleMenu}>
               ARTISTS
             </Link>
-            <Link to="/academy" onClick={toggleMenu}>
-              SUB_BAR ACADEMY
-            </Link>
 
             <Link to="/opencall" onClick={toggleMenu}>
               OPEN CALL
             </Link>
-            <Link to="/about" onClick={toggleMenu}>
+            <Link to="/contact" onClick={toggleMenu}>
               ABOUT US
             </Link>
             <a href="mailto:francesco@subbar.net" onClick={toggleMenu}>
@@ -72,9 +78,22 @@ const SideMenu = () => {
                     Instagram
                   </a>
                 </p>
-                <p>Twitter</p>
-                <p>LinkedIn</p>
-                <p>Facebook</p>
+                <p>
+                  <a href="https://www.instagram.com/subbar.eufonia/?hl=en">
+                    Twitter
+                  </a>
+                </p>
+                <p>
+                  <a href="https://www.linkedin.com/in/francesco-spaggiari-a74b19bb/">
+                    LinkedIn
+                  </a>
+                </p>
+                <p>
+                  <a href="https://www.facebook.com/eufoniafestival">
+                    Facebook
+                  </a>
+                </p>
+
                 <div className="space-maker">
                   <br />
                 </div>
@@ -86,9 +105,6 @@ const SideMenu = () => {
               <div className={"space-maker"}>
                 <br />
               </div>
-              <p>LISBON</p>
-              <p>BERLIN</p>
-              <p>VIENNA</p>
             </div>
           </div>
 

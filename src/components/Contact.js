@@ -4,18 +4,18 @@ import Card from "./atoms/Card";
 import Background from "./../assets/BG.svg";
 */
 import WelcomeSection from "./atoms/WelcomeSection";
-import AboutUsPicture from "../assets/sub_bar_2.png";
+import ContactPicture from "../assets/sub_bar_2.png";
 import "./styles.css";
 
-const AboutUs = () => {
+const Contact = () => {
   return (
     <>
       <WelcomeSection
-        welcomePictureSrc={AboutUsPicture}
-        welcomeParagraph="THIS IS A SAMPLE TEXT FOR ABOUT US SECTION"
+        welcomePictureSrc={ContactPicture}
+        welcomeParagraph="THIS IS A SAMPLE TEXT FOR CONTACT SECTION"
       />
     </>
   );
 };
 
-export default AboutUs;
+export default Contact;
