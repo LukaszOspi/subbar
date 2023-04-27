@@ -20,14 +20,24 @@ const LatestProjects = () => {
         );
 
         const images = createImageObject(response.data.includes.Asset);
+
         const items = response.data.items.map((item) => {
+          const { title, description, location, url } = item.fields;
+
+          // Extract text content from the description object
+          const descriptionText = description.content[0].content[0].value;
+
           return {
-            ...item.fields,
-            image: images[item.fields.image.sys.id],
+            title: title || "",
+            description: descriptionText || "",
+            location: location || "",
+            url: url || "",
+            image: images[item.fields.image.sys.id] || "",
           };
         });
 
         setData(items);
+        console.log(items);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
