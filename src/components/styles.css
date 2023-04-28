@@ -333,6 +333,7 @@ button:hover {
   border-radius: 16px;
   width: 35rem;
   height: 26.25rem;
+  max-width: 560px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -472,7 +473,7 @@ button:hover {
   z-index: 999;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1em;
 }
 .subbar-menu {
@@ -552,7 +553,8 @@ button:hover {
   text-decoration: none;
   color: #fff;
   position: relative;
-  padding-right: 20rem;
+  padding-right: 10rem;
+  padding-top: 5rem;
 }
 .social-links a:hover,
 .social-links a:focus {
@@ -872,7 +874,6 @@ button:hover {
 }
 @media (max-height: 800px) {
   .side-menu {
-    justify-content: flex-start;
   }
   .menu-links {
     font-size: 2rem;
