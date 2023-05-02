@@ -54,12 +54,12 @@ const SideMenu = () => {
             <Link to="/opencall" onClick={toggleMenu}>
               OPEN CALL
             </Link>
-            <Link to="/contact" onClick={toggleMenu}>
+            <Link to="/about" onClick={toggleMenu}>
               ABOUT US
             </Link>
-            <a href="mailto:francesco@subbar.net" onClick={toggleMenu}>
+            <Link to="/contact" onClick={toggleMenu}>
               CONTACT
-            </a>
+            </Link>
           </div>
           <div className="social-links">
             <div className="socials">
