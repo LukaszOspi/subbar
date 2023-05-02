@@ -12,7 +12,7 @@ const Contact = () => {
     <>
       <WelcomeSection
         welcomePictureSrc={ContactPicture}
-        welcomeParagraph="THIS IS A SAMPLE TEXT FOR CONTACT SECTION"
+        welcomeParagraph="CONTACT US: francesco@subbar.net"
       />
     </>
   );

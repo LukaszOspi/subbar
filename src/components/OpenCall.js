@@ -92,10 +92,7 @@ const OpenCall = () => {
 
   return (
     <>
-      <WelcomeSection
-        welcomePictureSrc={Opencall}
-        welcomeParagraph="THIS IS A SAMPLE TEXT FOR OPEN CALL SECTION"
-      />
+      <WelcomeSection welcomePictureSrc={Opencall} welcomeParagraph="" />
       <div className="cards-container">
         {data.map((item, index) => {
           const fields = item.fields;

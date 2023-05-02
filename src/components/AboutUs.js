@@ -12,7 +12,7 @@ const AboutUs = () => {
     <>
       <WelcomeSection
         welcomePictureSrc={AboutUsPicture}
-        welcomeParagraph="THIS IS A SAMPLE TEXT FOR ABOUT US SECTION"
+        welcomeParagraph="ABOUT US"
       />
     </>
   );
