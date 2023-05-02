@@ -38,8 +38,12 @@ const OpenCall = () => {
         response.data.items.map((item) => {
           const fields = item.fields;
 
-          // Extract text content from the description and descriptionContinuation objects
+          // Extract text content from the description and descriptionContinuation objectsconst extractText = (contentObject) => {
           const extractText = (contentObject) => {
+            if (!contentObject || !contentObject.content) {
+              return "";
+            }
+
             return contentObject.content
               .map((item) =>
                 item.content.map((subItem) => subItem.value).join(" ")

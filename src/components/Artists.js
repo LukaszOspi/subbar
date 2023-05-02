@@ -64,7 +64,6 @@ const Artists = () => {
         });
 
         setData(items);
-        console.log("Response:", response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -87,8 +86,6 @@ const Artists = () => {
 
     return imageObject;
   };
-
-  console.log("Data:", data);
 
   const renderCards = () => {
     const startIndex = (currentPage - 1) * 2;

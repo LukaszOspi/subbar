@@ -52,6 +52,8 @@ const Card = ({
           <a //eslint-disable-line
             href={onImageClick ? "#" : validatedUrl} //eslint-disable-line
             onClick={handleAnchorClick} // eslint-disable-line
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img src={image ? image : Background} alt={title} />
             {number ? (
@@ -66,7 +68,7 @@ const Card = ({
       >
         <h2 className="card-title">{title}</h2>
         <span className="card-location">{location}</span>
-        <p className="card-description">{description}</p>
+        <div className="card-description">{description}</div>
         <p className="card-event-production">{secondTitle}</p>
       </div>
       {renderButton && (
