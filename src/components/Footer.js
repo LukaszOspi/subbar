@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="column sub-bar">sub_bar</div>
         <div className="column">
           <div className="contact-us-container">
-            <a href="mailto:francesco@subbar.net">
+            <a href="mailto:francesco@eufonia.io">
               <button className="contact-us">CONTACT US</button>
             </a>
           </div>
@@ -31,8 +31,8 @@ const Footer = () => {
         <div className="column">
           <p style={{ fontWeight: "bold" }}>contact</p>
           <br />
-          <a href="mailto:info@eufonia.io">
-            <p>info@eufonia.io</p>
+          <a href="mailto:hello@eufonia.io">
+            <p>hello@eufonia.io</p>
           </a>
         </div>
 
