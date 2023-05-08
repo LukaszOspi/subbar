@@ -8,6 +8,7 @@ const WelcomeSection = ({
   welcomeParagraph,
   readMoreLink,
   videoId,
+  paddingTop,
 }) => {
   return (
     <>
@@ -33,7 +34,10 @@ const WelcomeSection = ({
       </div>
 
       {(welcomeParagraph || readMoreLink || videoId) && (
-        <div className="welcome-second-container">
+        <div
+          className="welcome-second-container"
+          style={{ paddingTop: paddingTop }}
+        >
           {(welcomeParagraph || readMoreLink) && (
             <div className="welcome-second-container-left">
               {welcomeParagraph && <p>{welcomeParagraph}</p>}

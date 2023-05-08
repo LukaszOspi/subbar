@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="column sub-bar">sub_bar</div>
         <div className="column">
           <div className="contact-us-container">
-            <a href="mailto:francesco@eufonia.io">
+            <a href="mailto:hello@eufonia.io">
               <button className="contact-us">CONTACT US</button>
             </a>
           </div>

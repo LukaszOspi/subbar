@@ -12,7 +12,7 @@ const Contact = () => {
     <>
       <WelcomeSection
         welcomePictureSrc={ContactPicture}
-        welcomeParagraph="CONTACT US: francesco@eufonia.io"
+        welcomeParagraph="CONTACT US: hello@eufonia.io"
       />
     </>
   );

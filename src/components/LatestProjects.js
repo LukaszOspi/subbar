@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./atoms/Card";
 import ProjectsLogo from "./../assets/latest_projects.svg";
+import Modal from "./atoms/Modal"; // Import the Modal component
 
 const LatestProjects = () => {
   const [data, setData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,6 +67,21 @@ const LatestProjects = () => {
     return imageObject;
   };
 
+  const handleCardClick = (item) => {
+    setShowModal(true);
+    setModalContent({
+      image: item.image,
+      title: item.title,
+      description: item.description,
+      location: item.location,
+    });
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    setModalContent(null);
+  };
+
   return (
     <div className="latest-projects-container">
       <div className="latest-projects-title">
@@ -72,17 +90,23 @@ const LatestProjects = () => {
       <div className="cards-container">
         {data.map((item, index) => (
           <Card
-            number={true}
+            number={false}
             key={index}
             index={index + 1}
             image={item.image}
             title={item.title}
-            description={item.description}
-            location={item.location}
-            url={item.url}
+            onImageClick={() => handleCardClick(item)}
           />
         ))}
       </div>
+      {showModal && (
+        <Modal
+          onClose={handleModalClose}
+          image={modalContent.image}
+          title={modalContent.title}
+          description={`Location: ${modalContent.location}\n\n${modalContent.description}`}
+        />
+      )}
     </div>
   );
 };
