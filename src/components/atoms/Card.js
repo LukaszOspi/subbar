@@ -13,6 +13,7 @@ const Card = ({
   url,
   onImageClick,
   renderButton,
+  urlPdf,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const formattedIndex = String(index).padStart(2, "0");
@@ -69,6 +70,13 @@ const Card = ({
         <h2 className="card-title">{title}</h2>
         <span className="card-location">{location}</span>
         <div className="card-description">{description}</div>
+        {urlPdf && (
+          <div className="pdf-download-container">
+            <a href={urlPdf} target="_blank" rel="noopener noreferrer">
+              DOWNLOAD PDF
+            </a>
+          </div>
+        )}
         <p className="card-event-production">{secondTitle}</p>
       </div>
       {renderButton && (

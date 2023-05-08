@@ -7,6 +7,8 @@ import "./styles.css";
 import WelcomeSection from "./atoms/WelcomeSection";
 import Modal from "./atoms/Modal"; // Import the Modal component (to be created)
 
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
 const OpenCall = () => {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -40,15 +42,14 @@ const OpenCall = () => {
 
           // Extract text content from the description and descriptionContinuation objectsconst extractText = (contentObject) => {
           const extractText = (contentObject) => {
-            if (!contentObject || !contentObject.content) {
-              return "";
+            if (
+              !contentObject ||
+              !contentObject.content ||
+              !Array.isArray(contentObject.content)
+            ) {
+              return null;
             }
-
-            return contentObject.content
-              .map((item) =>
-                item.content.map((subItem) => subItem.value).join(" ")
-              )
-              .join("\n");
+            return contentObject;
           };
 
           const descriptionText = extractText(fields.description);
@@ -85,6 +86,7 @@ const OpenCall = () => {
       descriptionContinuation: fields.descriptionContinuation,
     });
   };
+
   const handleModalClose = () => {
     setShowModal(false);
     setModalContent(null);
@@ -111,10 +113,15 @@ const OpenCall = () => {
               <Card
                 image={imageUrl}
                 title={fields.title}
-                description={fields.description}
+                description={
+                  fields.description
+                    ? documentToReactComponents(fields.description)
+                    : ""
+                }
                 index={index}
                 onImageClick={() => handleReadMoreClick(fields, imageUrl)}
                 renderButton={button}
+                urlPdf={fields.urlPdf}
               />
             </React.Fragment>
           );
