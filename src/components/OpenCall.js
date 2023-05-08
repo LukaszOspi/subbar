@@ -125,6 +125,7 @@ const OpenCall = () => {
                 onImageClick={() => handleReadMoreClick(fields, imageUrl)}
                 renderButton={button}
                 urlPdf={fields.urlPdf}
+                isRichText={true}
               />
             </React.Fragment>
           );
@@ -132,6 +133,7 @@ const OpenCall = () => {
       </div>
       {showModal && (
         <Modal
+          isRichText={true}
           onClose={handleModalClose}
           image={modalContent.image}
           title={modalContent.title}

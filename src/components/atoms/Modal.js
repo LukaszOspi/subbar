@@ -8,6 +8,7 @@ const Modal = ({
   description,
   descriptionContinuation,
   onClose,
+  isRichText = false,
 }) => {
   return (
     <>
@@ -26,7 +27,7 @@ const Modal = ({
           </div>
           <h2 className="modal-title">{title}</h2>
           <div className="modal-description">
-            {description ? documentToReactComponents(description) : ""}
+            {isRichText ? documentToReactComponents(description) : description}
           </div>
           <div className="modal-description-continuation">
             {descriptionContinuation

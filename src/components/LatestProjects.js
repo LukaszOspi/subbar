@@ -96,6 +96,7 @@ const LatestProjects = () => {
             image={item.image}
             title={item.title}
             onImageClick={() => handleCardClick(item)}
+            description={""}
           />
         ))}
       </div>
