@@ -100,14 +100,17 @@ const OpenCall = () => {
           const fields = item.fields;
           const imageId = fields.image?.sys?.id;
           const imageUrl = imageId ? item.images[imageId] : Background;
-          const button = (
+          const button = fields.descriptionContinuation ? (
             <button
               className="read-more-btn"
               onClick={() => handleReadMoreClick(fields, imageUrl)}
             >
               Read more
             </button>
+          ) : (
+            <div></div>
           );
+
           return (
             <React.Fragment key={index}>
               <Card

@@ -44,9 +44,19 @@ const Footer = () => {
               Instagram
             </a>
           </p>
-          <p>Twitter</p>
-          <p>LinkedIn</p>
-          <p>Facebook</p>
+          <p>
+            <a href="https://www.instagram.com/subbar.eufonia/?hl=en">
+              Twitter
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/francesco-spaggiari-a74b19bb/">
+              LinkedIn
+            </a>
+          </p>
+          <p>
+            <a href="https://www.facebook.com/eufoniafestival">Facebook</a>
+          </p>
         </div>
       </div>
       <div className="footer-bottom">
