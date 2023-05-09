@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "./atoms/Card";
 import ProjectsLogo from "./../assets/latest_projects.svg";
 import Modal from "./atoms/Modal"; // Import the Modal component
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const LatestProjects = () => {
   const [data, setData] = useState([]);
@@ -25,18 +26,32 @@ const LatestProjects = () => {
         const images = createImageObject(response.data.includes.Asset);
 
         const items = response.data.items.map((item) => {
-          const { title, description, location, url } = item.fields;
+          const { title, description, location, url, descriptionContinuation } =
+            item.fields;
 
           // Extract text content from the description object
           const extractText = (contentObject) => {
+            if (!contentObject || !contentObject.content) {
+              return "";
+            }
+
             return contentObject.content
-              .map((item) =>
-                item.content.map((subItem) => subItem.value).join(" ")
-              )
+              .map((item) => {
+                if (!item.content) {
+                  return "";
+                }
+
+                return item.content
+                  .map((subItem) => (subItem.value ? subItem.value : ""))
+                  .join(" ");
+              })
               .join("\n");
           };
 
           const descriptionText = extractText(description);
+          const descriptionContinuationText = extractText(
+            descriptionContinuation
+          );
 
           return {
             title: title || "",
@@ -44,6 +59,7 @@ const LatestProjects = () => {
             location: location || "",
             url: url || "",
             image: images[item.fields.image.sys.id] || "",
+            descriptionContinuation: descriptionContinuationText || "",
           };
         });
 
@@ -74,6 +90,7 @@ const LatestProjects = () => {
       title: item.title,
       description: item.description,
       location: item.location,
+      descriptionContinuation: item.descriptionContinuation,
     });
   };
 
@@ -105,7 +122,9 @@ const LatestProjects = () => {
           onClose={handleModalClose}
           image={modalContent.image}
           title={modalContent.title}
-          description={`Location: ${modalContent.location}\n\n${modalContent.description}`}
+          location={modalContent.location}
+          description={modalContent.description}
+          descriptionContinuation={modalContent.descriptionContinuation}
         />
       )}
     </div>

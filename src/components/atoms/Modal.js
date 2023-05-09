@@ -9,6 +9,7 @@ const Modal = ({
   descriptionContinuation,
   onClose,
   isRichText = false,
+  location,
 }) => {
   return (
     <>
@@ -25,14 +26,27 @@ const Modal = ({
           <div className="modal-image-container">
             <img src={image} alt={title} className="modal-image" />
           </div>
-          <h2 className="modal-title">{title}</h2>
+          <h2 className="modal-title">
+            {title && (isRichText ? documentToReactComponents(title) : title)}
+          </h2>
+          <span className="card-location">
+            {location &&
+              (isRichText ? documentToReactComponents(location) : location)}
+          </span>
+          <br />
           <div className="modal-description">
-            {isRichText ? documentToReactComponents(description) : description}
+            {description &&
+              (isRichText
+                ? documentToReactComponents(description)
+                : description)}
           </div>
           <div className="modal-description-continuation">
-            {descriptionContinuation
-              ? documentToReactComponents(descriptionContinuation)
-              : ""}
+            {descriptionContinuation &&
+              (isRichText ? (
+                documentToReactComponents(descriptionContinuation)
+              ) : (
+                <div>{descriptionContinuation}</div>
+              ))}
           </div>
         </div>
       </div>
