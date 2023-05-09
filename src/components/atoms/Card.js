@@ -69,13 +69,14 @@ const Card = ({
       >
         <h2 className="card-title">{title}</h2>
         <span className="card-location">{location}</span>
+
         <div className="card-description">{description}</div>
         {urlPdf && (
-          <div className="pdf-download-container">
+          <button className="pdf-download-container">
             <a href={urlPdf} target="_blank" rel="noopener noreferrer">
               DOWNLOAD PDF
             </a>
-          </div>
+          </button>
         )}
         <p className="card-event-production">{secondTitle}</p>
       </div>

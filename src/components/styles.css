@@ -125,6 +125,12 @@ button:hover {
 }
 
 /* FOOTER */
+.footer-wrapper {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .footer {
   background-color: white;
   color: black;
