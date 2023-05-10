@@ -22,44 +22,25 @@ const LatestProjects = () => {
             },
           }
         );
-
+        console.log(response.data);
         const images = createImageObject(response.data.includes.Asset);
 
         const items = response.data.items.map((item) => {
-          const { title, description, location, url, descriptionContinuation } =
-            item.fields;
+          const fields = item.fields;
 
-          // Extract text content from the description object
-          const extractText = (contentObject) => {
-            if (!contentObject || !contentObject.content) {
-              return "";
-            }
-
-            return contentObject.content
-              .map((item) => {
-                if (!item.content) {
-                  return "";
-                }
-
-                return item.content
-                  .map((subItem) => (subItem.value ? subItem.value : ""))
-                  .join(" ");
-              })
-              .join("\n");
-          };
-
-          const descriptionText = extractText(description);
-          const descriptionContinuationText = extractText(
-            descriptionContinuation
+          const descriptionText = documentToReactComponents(fields.description);
+          const descriptionContinuationText = documentToReactComponents(
+            fields.descriptionContinuation
           );
 
           return {
-            title: title || "",
-            description: descriptionText || "",
-            location: location || "",
-            url: url || "",
-            image: images[item.fields.image.sys.id] || "",
-            descriptionContinuation: descriptionContinuationText || "",
+            ...item,
+            fields: {
+              ...fields,
+              description: descriptionText,
+              descriptionContinuation: descriptionContinuationText,
+              image: images[fields.image.sys.id],
+            },
           };
         });
 
@@ -67,6 +48,7 @@ const LatestProjects = () => {
         console.log(items);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setData([]);
       }
     };
 
@@ -83,14 +65,14 @@ const LatestProjects = () => {
     return imageObject;
   };
 
-  const handleCardClick = (item) => {
+  const handleCardClick = (fields) => {
     setShowModal(true);
     setModalContent({
-      image: item.image,
-      title: item.title,
-      description: item.description,
-      location: item.location,
-      descriptionContinuation: item.descriptionContinuation,
+      image: fields.image,
+      title: fields.title,
+      description: fields.description,
+      location: fields.location,
+      descriptionContinuation: fields.descriptionContinuation,
     });
   };
 
@@ -107,12 +89,13 @@ const LatestProjects = () => {
       <div className="cards-container">
         {data.map((item, index) => (
           <Card
+            isRichText={true}
             number={false}
             key={index}
             index={index + 1}
-            image={item.image}
-            title={item.title}
-            onImageClick={() => handleCardClick(item)}
+            image={item.fields.image}
+            title={item.fields.title}
+            onImageClick={() => handleCardClick(item.fields)}
             description={""}
           />
         ))}

@@ -5,17 +5,19 @@ import Background from "./../assets/BG.svg";
 import Opencall from "./../assets/opencall.png";
 import "./styles.css";
 import WelcomeSection from "./atoms/WelcomeSection";
-import Modal from "./atoms/Modal"; // Import the Modal component (to be created)
-
+import Modal from "./atoms/Modal";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const OpenCall = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         "https://cdn.contentful.com/spaces/5efp2j34tblf/environments/master/entries",
         {
@@ -25,6 +27,8 @@ const OpenCall = () => {
           },
         }
       );
+      console.log(response.data); // Log the response data here
+
       const createImageObject = (assets) => {
         const imageObject = {};
 
@@ -40,7 +44,6 @@ const OpenCall = () => {
         response.data.items.map((item) => {
           const fields = item.fields;
 
-          // Extract text content from the description and descriptionContinuation objectsconst extractText = (contentObject) => {
           const extractText = (contentObject) => {
             if (
               !contentObject ||
@@ -68,8 +71,13 @@ const OpenCall = () => {
           };
         })
       );
+      setError(null);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setData([]);
+      setError(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -88,57 +96,74 @@ const OpenCall = () => {
   };
 
   const handleModalClose = () => {
-    setShowModal(false);
-    setModalContent(null);
+    if (setShowModal && setModalContent) {
+      setShowModal(false);
+      setModalContent(null);
+    } else {
+      console.log("setShowModal or setModalContent is null or undefined");
+    }
   };
 
   return (
     <>
       <WelcomeSection welcomePictureSrc={Opencall} welcomeParagraph="" />
       <div className="cards-container">
-        {data.map((item, index) => {
-          const fields = item.fields;
-          const imageId = fields.image?.sys?.id;
-          const imageUrl = imageId ? item.images[imageId] : Background;
-          const button = fields.descriptionContinuation ? (
-            <button
-              className="read-more-btn"
-              onClick={() => handleReadMoreClick(fields, imageUrl)}
-            >
-              Read more
-            </button>
-          ) : (
-            <div></div>
-          );
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>There was an error loading the data.</div>
+        ) : (
+          data.map((item, index) => {
+            const fields = item.fields;
+            const imageId = fields.image?.sys?.id;
+            const imageUrl = imageId ? item.images[imageId] : Background;
+            const button = fields.descriptionContinuation ? (
+              <button
+                className="read-more-btn"
+                onClick={() => handleReadMoreClick(fields, imageUrl)}
+              >
+                Read more
+              </button>
+            ) : (
+              <div></div>
+            );
 
-          return (
-            <React.Fragment key={index}>
-              <Card
-                image={imageUrl}
-                title={fields.title}
-                description={
-                  fields.description
-                    ? documentToReactComponents(fields.description)
-                    : ""
-                }
-                index={index}
-                onImageClick={() => handleReadMoreClick(fields, imageUrl)}
-                renderButton={button}
-                urlPdf={fields.urlPdf}
-                isRichText={true}
-              />
-            </React.Fragment>
-          );
-        })}
+            return (
+              <React.Fragment key={index}>
+                <Card
+                  image={imageUrl}
+                  title={fields.title}
+                  description={
+                    fields.description
+                      ? documentToReactComponents(fields.description)
+                      : ""
+                  }
+                  index={index}
+                  onImageClick={() => handleReadMoreClick(fields, imageUrl)}
+                  renderButton={button}
+                  urlPdf={fields.urlPdf}
+                  isRichText={true}
+                />
+              </React.Fragment>
+            );
+          })
+        )}
       </div>
       {showModal && (
         <Modal
-          isRichText={true}
           onClose={handleModalClose}
           image={modalContent.image}
           title={modalContent.title}
-          description={modalContent.description}
-          descriptionContinuation={modalContent.descriptionContinuation}
+          description={
+            modalContent.description
+              ? documentToReactComponents(modalContent.description)
+              : ""
+          }
+          descriptionContinuation={
+            modalContent.descriptionContinuation
+              ? documentToReactComponents(modalContent.descriptionContinuation)
+              : ""
+          }
         />
       )}
     </>
