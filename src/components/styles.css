@@ -82,24 +82,21 @@ button:hover {
 .welcome-container {
   position: relative;
   display: flex;
-  justify-content: flex-end;
-}
-
-.welcome-text-container {
-  position: absolute;
-  left: 0;
-  z-index: 2;
+  justify-content: center;
 }
 
 .welcome-image-container {
   z-index: 1;
   display: flex;
-  justify-content: right;
+  justify-content: center;
+  height: 100vh; /* Cover the full viewport height */
+  overflow: hidden; /* Clip the image if it overflows */
 }
 
 .welcome-image {
-  width: 40rem;
-  display: block;
+  height: 100%; /* Scale the image to fill its parent height */
+  object-fit: cover; /* Preserve aspect ratio */
+  object-position: center; /* Center the image */
 }
 .welcome-second-container {
   display: flex;
@@ -116,12 +113,14 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: white;
 }
 .welcome-second-container-right {
   width: 30%;
   display: flex;
   justify-content: right;
   padding-right: 5rem;
+  color: white;
 }
 
 /* FOOTER */
@@ -418,7 +417,32 @@ button:hover {
   font-size: 1rem;
   color: white;
 }
-
+/* ABOUT US */
+.about-us-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.about-us {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.about-us-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+.about-us-team {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 /* SIDE MENU */
 
 /* SideMenu.css */
@@ -736,19 +760,22 @@ button:hover {
     width: 100vw;
   }
 
+  .about-us {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-us-team {
+    width: 100%;
+    justify-content: center;
+  }
   .welcome-container {
     flex-direction: column;
     justify-content: center;
   }
 
-  .welcome-text-container {
-    position: static;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 20px;
+  .welcome-image-container {
+    height: 50vh; /* Cover the half viewport height */
   }
-
   .welcome-image {
     width: 100%;
   }
@@ -757,6 +784,12 @@ button:hover {
     justify-content: center;
     align-items: center;
     padding-bottom: 0px;
+  }
+  .about-us-text {
+    width: 90%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
   }
   .welcome-second-container-left {
     width: 90%;

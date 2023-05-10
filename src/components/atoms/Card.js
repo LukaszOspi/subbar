@@ -14,6 +14,8 @@ const Card = ({
   onImageClick,
   renderButton,
   urlPdf,
+  width,
+  borderRadius,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const formattedIndex = String(index).padStart(2, "0");
@@ -47,16 +49,32 @@ const Card = ({
   };
 
   return (
-    <div className="card">
-      <div className="card-image-container">
-        <div className="card-image">
+    <div className="card" style={{ width: width || "auto" }}>
+      <div
+        className="card-image-container"
+        style={{
+          maxWidth: width,
+          height: width,
+        }}
+      >
+        <div className="card-image" style={{ width: width }}>
           <a //eslint-disable-line
             href={onImageClick ? "#" : validatedUrl} //eslint-disable-line
             onClick={handleAnchorClick} // eslint-disable-line
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={image ? image : Background} alt={title} />
+            <img
+              src={image ? image : Background}
+              alt={title}
+              style={{
+                maxWidth: width,
+                height: width,
+                minWidth: width ? "1rem" : `auto`,
+                borderRadius: borderRadius,
+                objectFit: "cover",
+              }}
+            />
             {number ? (
               <span className="index-number">{formattedIndex}</span>
             ) : null}

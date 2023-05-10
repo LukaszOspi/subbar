@@ -3,7 +3,6 @@ import React from "react";
 import YouTubeVideo from "./YouTubeVideo";
 
 const WelcomeSection = ({
-  welcomeTextImageSrc,
   welcomePictureSrc,
   welcomeParagraph,
   readMoreLink,
@@ -13,21 +12,12 @@ const WelcomeSection = ({
   return (
     <>
       <div className="welcome-container">
-        {welcomeTextImageSrc && (
-          <div className="welcome-text-container">
-            <img src={welcomeTextImageSrc} alt="Welcome" />
-          </div>
-        )}
         {welcomePictureSrc && (
-          <div
-            className="welcome-image-container"
-            style={!welcomeTextImageSrc ? { width: "100%" } : {}}
-          >
+          <div className="welcome-image-container">
             <img
               className="welcome-image"
               src={welcomePictureSrc}
               alt="Graphic"
-              style={!welcomeTextImageSrc ? { width: "100%" } : {}}
             />
           </div>
         )}
