@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Card from "./atoms/Card";
 import Background from "./../assets/BG.svg";
@@ -8,20 +10,99 @@ import AboutUsPicture from "../assets/sub_bar_2.png";
 import "./styles.css";
 
 const AboutUs = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        "https://cdn.contentful.com/spaces/5efp2j34tblf/environments/master/entries",
+        {
+          params: {
+            access_token: "Kx6XAVX4jQsvyUT0zSY-9jy_7iE6CC7eQ9t9Sh38yz8",
+            content_type: "team",
+          },
+        }
+      );
+      console.log(response.data);
+      const createImageObject = (assets) => {
+        const imageObject = {};
+
+        assets.forEach((asset) => {
+          imageObject[asset.sys.id] = `https:${asset.fields.file.url}`;
+        });
+
+        return imageObject;
+      };
+
+      const images = createImageObject(response.data.includes.Asset);
+      setData(
+        response.data.items.map((item) => {
+          const fields = item.fields;
+
+          const extractText = (contentObject) => {
+            if (
+              !contentObject ||
+              !contentObject.content ||
+              !Array.isArray(contentObject.content)
+            ) {
+              return null;
+            }
+            return contentObject;
+          };
+
+          const descriptionText = extractText(fields.description);
+          const titleText = extractText(fields.title);
+
+          return {
+            ...item,
+            images,
+            fields: {
+              ...fields,
+              description: descriptionText,
+              title: titleText,
+            },
+          };
+        })
+      );
+      setError(null);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setData([]);
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <div style={{ paddingTop: "0rem" }}>
-        <WelcomeSection
-          paddingTop="0rem"
-          welcomePictureSrc={AboutUsPicture}
-          welcomeParagraph=" WELCOME TO SUB_BAR, A CREATIVE ENVIRONMENT BASED ON SUBFREQUENCIES AND VIBRATIONS, AND A MEETING POINT BETWEEN HEARING AND DEAF CULTURES. WE EMPOWER ARTISTS, BUSINESSES, AND ORGANISATIONS WORLDWIDE WITH THE TOOLS AND EXPERTISE THEY NEED TO CREATE LOCAL EVENTS, AND WE NURTURE THEIR COMMUNITIES THROUGH EDUCATIVE PROGRAMS, STRATEGIC PARTNERSHIPS, AND OPEN CALLS.
-
-WE PROMOTE AN ALTERNATIVE, INTENSE, AND TRANCE-INDUCING FORMAT WHERE THE ART OF “LISTENING” IS A TASK FOR THE WHOLE BODY, CREATING SHARED MEMORIES AND INSPIRING TOMORROW’S TECHNOLOGIES. THIS COMMUNITY OF ARTISTS AND RESEARCHERS IS HELD TOGETHER BY CURIOSITY, INNOVATION, AND MUTUAL LEARNING, IN PURSUIT OF THE NEXT BEAUTIFUL THING."
-        />
+        <WelcomeSection paddingTop="0rem" welcomePictureSrc={AboutUsPicture} />
       </div>
       <div className="about-us about-us-container">
         <div className="about-us-text">
-          <p
+          <div style={{ fontWeight: "100", paddingBottom: "10rem" }}>
+            Welcome to Sub_Bar, a creative environment based on subfrequencies
+            and vibrations, and a meeting point between hearing and deaf
+            cultures. We empower artists, businesses, and organizations
+            worldwide with the tools and expertise they need to create local
+            events, and we nurture their communities through educative programs,
+            strategic partnerships, and open calls. We promote an alternative,
+            intense, and trance-inducing format where the art of "listening" is
+            a task for the whole body, creating shared memories and inspiring
+            tomorrow's technologies. This community of artists and researchers
+            is held together by curiosity, innovation, and mutual learning, in
+            pursuit of the next beautiful thing.
+          </div>
+
+          <div
             style={{
               paddingBottom: "10rem",
               display: "flex",
@@ -76,26 +157,44 @@ WE PROMOTE AN ALTERNATIVE, INTENSE, AND TRANCE-INDUCING FORMAT WHERE THE ART OF 
               POSSIBILITIES TO CONNECT, CREATE, AND PERFORM. 
             </span>
             <br></br>
-          </p>
+          </div>
         </div>
         <div>
           <img src={Team} alt="Team" />
         </div>
         <div className="about-us-team">
-          <Card
-            image={Background}
-            title="Team"
-            description="The team behind Sub_Bar"
-            width="300px"
-            borderRadius={"50px"}
-          />
-          <Card
-            image={Background}
-            title="Team"
-            description="The team behind Sub_Bar"
-            width="300px"
-            borderRadius={"50px"}
-          />
+          {loading ? (
+            <div>Loading...</div>
+          ) : error ? (
+            <div>There was an error loading the data.</div>
+          ) : (
+            data.map((item, index) => {
+              const fields = item.fields;
+              const imageId = fields.image?.sys?.id;
+              const imageUrl = imageId ? item.images[imageId] : Background;
+
+              return (
+                <React.Fragment key={index}>
+                  <Card
+                    image={imageUrl}
+                    title={
+                      fields.title && fields.title.content
+                        ? documentToReactComponents(fields.title)
+                        : ""
+                    }
+                    description={
+                      fields.description && fields.description.content
+                        ? documentToReactComponents(fields.description)
+                        : ""
+                    }
+                    url={fields.url}
+                    width="300px"
+                    borderRadius={"50px"}
+                  />
+                </React.Fragment>
+              );
+            })
+          )}
         </div>
       </div>
     </>

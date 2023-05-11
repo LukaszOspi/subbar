@@ -27,7 +27,6 @@ const OpenCall = () => {
           },
         }
       );
-      console.log(response.data); // Log the response data here
 
       const createImageObject = (assets) => {
         const imageObject = {};
