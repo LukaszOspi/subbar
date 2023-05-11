@@ -82,35 +82,56 @@ const LatestProjects = () => {
   };
 
   return (
-    <div className="latest-projects-container">
-      <div className="latest-projects-title">
-        <img src={ProjectsLogo} alt="Our Latest Projects" />
-      </div>
-      <div className="cards-container">
-        {data.map((item, index) => (
-          <Card
-            isRichText={true}
-            number={false}
-            key={index}
-            index={index + 1}
-            title={item.fields.title}
-            onImageClick={() => handleCardClick(item.fields)}
-            description={""}
-            displayImage={false}
+    <>
+      <div className="latest-projects-container">
+        <div className="latest-projects-title">
+          <img src={ProjectsLogo} alt="Our Latest Projects" />
+        </div>
+        <div className="cards-container">
+          <div className="cards-past">
+            {data.map((item, index) => (
+              <Card
+                past={true}
+                isRichText={true}
+                number={false}
+                key={index}
+                index={index + 1}
+                title={item.fields.title}
+                onImageClick={() => handleCardClick(item.fields)}
+                description={""}
+                displayImage={false}
+              />
+            ))}
+          </div>
+          <div className="cards-future">
+            {data.map((item, index) => (
+              <Card
+                past={false}
+                crossedTitle={true}
+                isRichText={true}
+                number={false}
+                key={index}
+                index={index + 1}
+                title={item.fields.title}
+                onImageClick={() => handleCardClick(item.fields)}
+                description={""}
+                displayImage={false}
+              />
+            ))}
+          </div>
+        </div>
+        {showModal && (
+          <Modal
+            onClose={handleModalClose}
+            image={modalContent.image}
+            title={modalContent.title}
+            location={modalContent.location}
+            description={modalContent.description}
+            descriptionContinuation={modalContent.descriptionContinuation}
           />
-        ))}
+        )}
       </div>
-      {showModal && (
-        <Modal
-          onClose={handleModalClose}
-          image={modalContent.image}
-          title={modalContent.title}
-          location={modalContent.location}
-          description={modalContent.description}
-          descriptionContinuation={modalContent.descriptionContinuation}
-        />
-      )}
-    </div>
+    </>
   );
 };
 

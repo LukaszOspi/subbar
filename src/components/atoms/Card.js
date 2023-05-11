@@ -17,6 +17,7 @@ const Card = ({
   width,
   borderRadius,
   displayImage = true,
+  crossedTitle = false,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const formattedIndex = String(index).padStart(2, "0");
@@ -88,7 +89,16 @@ const Card = ({
         className={`card-text-container ${isExpanded ? "expanded" : ""}`}
         onClick={handleTextClick}
       >
-        <h2 className="card-title">{title}</h2>
+        <h2
+          className="card-title"
+          style={{
+            textDecoration: crossedTitle ? "line-through" : "none",
+            fontSize: crossedTitle ? "2rem" : "",
+            fontWeight: crossedTitle ? "300" : "",
+          }}
+        >
+          {title}
+        </h2>
         <span className="card-location">{location}</span>
 
         <div className="card-description">{description}</div>
