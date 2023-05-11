@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./atoms/Card";
 import ProjectsLogo from "./../assets/latest_projects.svg";
+import Past from "../assets/past.svg";
+import Upcoming from "../assets/upcoming.svg";
 import Modal from "./atoms/Modal"; // Import the Modal component
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -89,35 +91,43 @@ const LatestProjects = () => {
         </div>
         <div className="cards-container">
           <div className="cards-past">
-            {data.map((item, index) => (
-              <Card
-                past={true}
-                isRichText={true}
-                number={false}
-                key={index}
-                index={index + 1}
-                title={item.fields.title}
-                onImageClick={() => handleCardClick(item.fields)}
-                description={""}
-                displayImage={false}
-              />
-            ))}
+            <img src={Past} alt="past" />
+            {data
+              .filter((item) => item.fields.past)
+              .map((item, index) => (
+                <Card
+                  crossedTitle={true}
+                  isRichText={true}
+                  number={false}
+                  key={index}
+                  description={item.fields.description}
+                  index={index + 1}
+                  title={item.fields.title}
+                  onImageClick={() => handleCardClick(item.fields)}
+                  onTitleClick={() => handleCardClick(item.fields)}
+                  displayImage={false}
+                />
+              ))}
           </div>
           <div className="cards-future">
-            {data.map((item, index) => (
-              <Card
-                past={false}
-                crossedTitle={true}
-                isRichText={true}
-                number={false}
-                key={index}
-                index={index + 1}
-                title={item.fields.title}
-                onImageClick={() => handleCardClick(item.fields)}
-                description={""}
-                displayImage={false}
-              />
-            ))}
+            <br></br>
+            <img src={Upcoming} alt="upcoming" />
+            {data
+              .filter((item) => !item.fields.past)
+              .map((item, index) => (
+                <Card
+                  crossedTitle={true}
+                  isRichText={true}
+                  number={false}
+                  key={index}
+                  description={item.fields.description}
+                  index={index + 1}
+                  title={item.fields.title}
+                  onImageClick={() => handleCardClick(item.fields)}
+                  onTitleClick={() => handleCardClick(item.fields)}
+                  displayImage={false}
+                />
+              ))}
           </div>
         </div>
         {showModal && (

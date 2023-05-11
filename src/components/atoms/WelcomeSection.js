@@ -6,6 +6,7 @@ const WelcomeSection = ({
   welcomePictureSrc,
   welcomeParagraph,
   readMoreLink,
+  readMoreText = "READ MORE",
   videoId,
   paddingTop,
 }) => {
@@ -33,7 +34,7 @@ const WelcomeSection = ({
               {welcomeParagraph && <p>{welcomeParagraph}</p>}
               {readMoreLink && (
                 <button onClick={() => (window.location.href = readMoreLink)}>
-                  READ MORE
+                  {readMoreText}
                 </button>
               )}
             </div>

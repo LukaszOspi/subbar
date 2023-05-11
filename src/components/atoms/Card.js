@@ -12,6 +12,7 @@ const Card = ({
   number,
   url,
   onImageClick,
+  onTitleClick,
   renderButton,
   urlPdf,
   width,
@@ -47,6 +48,14 @@ const Card = ({
     if (onImageClick) {
       e.preventDefault();
       onImageClick();
+    }
+  };
+
+  const handleTitleClick = (e) => {
+    if (onTitleClick) {
+      // Check if onTitleClick is provided
+      e.preventDefault();
+      onTitleClick();
     }
   };
 
@@ -95,7 +104,9 @@ const Card = ({
             textDecoration: crossedTitle ? "line-through" : "none",
             fontSize: crossedTitle ? "2rem" : "",
             fontWeight: crossedTitle ? "300" : "",
+            cursor: "pointer",
           }}
+          onClick={handleTitleClick} // Use the handler here
         >
           {title}
         </h2>

@@ -4,9 +4,9 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Card from "./atoms/Card";
 import Background from "./../assets/BG.svg";
-import Team from "./../assets/team.svg";
+import Teachers from "./../assets/teachers.svg";
 import WelcomeSection from "./atoms/WelcomeSection";
-import AboutUsPicture from "../assets/sub_bar_2.png";
+import Academy from "../assets/subbaracademy.png";
 import "./styles.css";
 
 const AboutUs = () => {
@@ -22,7 +22,7 @@ const AboutUs = () => {
         {
           params: {
             access_token: "Kx6XAVX4jQsvyUT0zSY-9jy_7iE6CC7eQ9t9Sh38yz8",
-            content_type: "team",
+            content_type: "academy",
           },
         }
       );
@@ -84,7 +84,17 @@ const AboutUs = () => {
   return (
     <>
       <div style={{ paddingTop: "0rem" }}>
-        <WelcomeSection paddingTop="0rem" welcomePictureSrc={AboutUsPicture} />
+        <WelcomeSection
+          paddingTop="0rem"
+          welcomePictureSrc={Academy}
+          welcomeParagraph="sub_bar academy is a music course for deaf and hard of hearing people, 
+            based on subfrequencies instead of sound. over 72 hours, our participants 
+            will learn how to compose and perform using this new creative medium,
+             choosing their instruments from a variety of options, both hardware 
+             and software."
+          readMoreLink="/opencall"
+          readMoreText="OPEN CALL"
+        />
       </div>
       <div className="about-us about-us-container">
         <div className="about-us-text">
@@ -159,7 +169,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div>
-          <img src={Team} alt="Team" />
+          <img src={Teachers} alt="Team" />
         </div>
         <div className="about-us-team">
           {loading ? (

@@ -10,10 +10,19 @@ import "./styles.css";
 const Contact = () => {
   return (
     <>
-      <WelcomeSection
-        welcomePictureSrc={ContactPicture}
-        welcomeParagraph="CONTACT US: hello@eufonia.io"
-      />
+      <WelcomeSection welcomePictureSrc={ContactPicture} />
+      <div
+        style={{
+          fontSize: "10rem",
+          fontWeight: "700",
+          paddingBottom: "30%",
+          paddingTop: "10%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <a href="mailto:hello@eufonia.io">HELLO@EUFONIA.IO</a>
+      </div>
     </>
   );
 };

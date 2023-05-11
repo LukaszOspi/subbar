@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Artists from "./components/Artists";
 import Welcome from "./components/Welcome";
-import SubBar from "./components/SubBar";
+import Academy from "./components/Academy";
 import OpenCall from "./components/OpenCall";
 import SideMenu from "./components/atoms/SideMenu";
 import AboutUs from "./components/AboutUs";
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/artists" element={<Artists />} />
-            <Route path="/academy" element={<SubBar />} />
+            <Route path="/academy" element={<Academy />} />
             <Route path="/opencall" element={<OpenCall />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
