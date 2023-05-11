@@ -93,10 +93,10 @@ const LatestProjects = () => {
             number={false}
             key={index}
             index={index + 1}
-            image={item.fields.image}
             title={item.fields.title}
             onImageClick={() => handleCardClick(item.fields)}
             description={""}
+            displayImage={false}
           />
         ))}
       </div>

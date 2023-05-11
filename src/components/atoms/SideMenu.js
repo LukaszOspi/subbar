@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SubLogo from "./../../assets/sub_logo 1.svg";
 import subBarMenu from "./../../assets/sub_bar_menu.svg";
+import BurgerMenu from "./../../assets/Menu.svg";
+import CloseMenu from "./../../assets/Menu-close.svg";
 import "./../styles.css";
 
 const SideMenu = () => {
@@ -23,11 +25,8 @@ const SideMenu = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  /*
-            <Link to="/academy" onClick={toggleMenu}>
-              SUB_BAR ACADEMY
-            </Link>
 
+  /*
               <p>LISBON</p>
               <p>BERLIN</p>
               <p>VIENNA</p>
@@ -35,11 +34,12 @@ const SideMenu = () => {
 
   return (
     <>
-      <button
-        className={`menu-button ${menuOpen ? "open" : ""}`}
-        onClick={toggleMenu}
-      >
+      <button className="menu-button" onClick={toggleMenu}>
         <img src={SubLogo} alt="Menu" />
+      </button>
+
+      <button className={"menu-button-hamburger"} onClick={toggleMenu}>
+        <img src={menuOpen ? CloseMenu : BurgerMenu} alt="Menu" />
       </button>
       {menuOpen && (
         <div className="side-menu">
@@ -50,10 +50,13 @@ const SideMenu = () => {
             <Link to="/artists" onClick={toggleMenu}>
               ARTISTS
             </Link>
-
             <Link to="/opencall" onClick={toggleMenu}>
               OPEN CALL
             </Link>
+            <Link to="/academy" onClick={toggleMenu}>
+              SUB_BAR ACADEMY
+            </Link>
+
             <Link to="/about" onClick={toggleMenu}>
               ABOUT US
             </Link>
@@ -101,7 +104,9 @@ const SideMenu = () => {
             </div>
 
             <div className="eufonia-io">
-              <p style={{ fontWeight: "bold" }}> eufonia.io </p>
+              <p style={{ fontWeight: "bold" }}>
+                <a href="https://www.eufonia.io">eufonia.io </a>{" "}
+              </p>
               <div className={"space-maker"}>
                 <br />
               </div>

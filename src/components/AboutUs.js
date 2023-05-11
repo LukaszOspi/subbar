@@ -111,50 +111,49 @@ const AboutUs = () => {
           >
             <span>SUB_BAR</span> <br></br>
             <span>
-              THROUGH SUB_BAR WE CREATE A NEW ART FORM AND CREATIVE LANGUAGE
-              THAT USES SUBWOOFERS AND TACTILE TECHNOLOGY TO INTERACT THROUGH
-              THE SENSE OF TOUCH. SET IN AN AESTHETIC-ARTISTIC CONTEXT, SUB_BAR
-              AIMS TO PROMOTE INCLUSION AS AN OPPORTUNITY AND A TASK FOR ALL OF
-              US.
+              through sub_bar we create a new art form and creative language
+              that uses subwoofers and tactile technology to interact through
+              the sense of touch. set in an aesthetic-artistic context, sub_bar
+              aims to promote inclusion as an opportunity and a task for all of
+              us.
             </span>
             <br></br>
             <span>
-              {" "}
-              SUB FREQUENCIES ARE LOW-FREQUENCY SOUNDS, THAT ARE MAINLY
-              PERCEIVED BY THE BODY AND OUR NERVOUS SYSTEM RATHER THAN OUR EARS:
-              DIFFERENTLY THAN SOUND, THEY ARE NOT DIRECTIONAL (LEFT OR RIGHT,
-              FRONT OR BACK), AND THEY TRIGGER A SENSE OF FULL IMMERSION.{" "}
-            </span>{" "}
+              sub frequencies are low-frequency sounds, that are mainly
+              perceived by the body and our nervous system rather than our ears:
+              differently than sound, they are not directional (left or right,
+              front or back), and they trigger a sense of full immersion.
+            </span>
             <br></br>
             <span>
-              LOW FREQUENCIES STIMULATION IS NOT A NOVEL FIELD, IN FACT, ITS
-              BENEFICIAL EFFECT HAS BEEN CLINICALLY STUDIED OVER THE LAST TWO
-              DECADES.{" "}
-            </span>{" "}
+              low frequencies stimulation is not a novel field, in fact, its
+              beneficial effect has been clinically studied over the last two
+              decades.
+            </span>
             <br></br>
             <span>
-              THIS PHYSICAL AND AESTHETIC EXPERIENCE TRIGGERS A SENSE THAT HAS
-              ALWAYS BEEN IN THE BACKGROUND, GROWING ITS MEMORIES, CURIOSITY,
-              AND ITS LANGUAGE. WITH MUSIC IN MIND, SUB_BAR GIVES VOICE TO THAT
-              BACKGROUND, THROUGH THE VISION OF THE BEST ARTISTS OUT THERE.{" "}
-            </span>{" "}
+              this physical and aesthetic experience triggers a sense that has
+              always been in the background, growing its memories, curiosity,
+              and its language. with music in mind, sub_bar gives voice to that
+              background, through the vision of the best artists out there.
+            </span>
             <br></br>
             <br></br>
             <span>ABOUT US</span> <br></br>
             <span>
-              SINCE 2021, WE PROMOTE COMPOSITIONS AND PERFORMANCES FROM HEARING
-              AND DEAF ARTISTS WHO WORK WITH THIS NEW MEDIUM, CREATING
-              VIBRATIONS THAT CAN BE FELT THROUGHOUT THE BODY, TO CREATING
-              UNIQUE AND INTENSE EXPERIENCES.
+              since 2021, we promote compositions and performances from hearing
+              and deaf artists who work with this new medium, creating
+              vibrations that can be felt throughout the body, to creating
+              unique and intense experiences.
             </span>
             <br></br>
             <span>
               <br></br>
-              WE TOOK INSPIRATION FROM MUSIC EDUCATION AND MULTISENSORY RESEARCH
-              TO ESTABLISH A NEW CREATIVE LANGUAGE, AND AFTER HOSTING REGULAR
-              EVENTS IN LISBON, BERLIN, LEIPZIG, AND KÖLN, WE ARE ABOUT TO
-              LAUNCH SUB_BAR IN THE REST OF EUROPE, CREATING EVEN MORE
-              POSSIBILITIES TO CONNECT, CREATE, AND PERFORM. 
+              we took inspiration from music education and multisensory research
+              to establish a new creative language, and after hosting regular
+              events in Lisbon, Berlin, Leipzig, and Köln, we are about to
+              launch sub_bar in the rest of Europe, creating even more
+              possibilities to connect, create, and perform.
             </span>
             <br></br>
           </div>
