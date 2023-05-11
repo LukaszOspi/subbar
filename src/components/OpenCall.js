@@ -142,7 +142,7 @@ const OpenCall = () => {
                   renderButton={button}
                   urlPdf={fields.urlPdf}
                   isRichText={true}
-                  width="20rem"
+                  width="24rem"
                 />
               </React.Fragment>
             );
