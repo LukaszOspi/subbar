@@ -41,7 +41,10 @@ const LatestProjects = () => {
               ...fields,
               description: descriptionText,
               descriptionContinuation: descriptionContinuationText,
-              image: images[fields.image.sys.id],
+              image:
+                fields.image && fields.image.sys && fields.image.sys.id
+                  ? images[fields.image.sys.id]
+                  : null,
             },
           };
         });
