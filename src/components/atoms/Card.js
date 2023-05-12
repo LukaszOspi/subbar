@@ -19,6 +19,7 @@ const Card = ({
   borderRadius,
   displayImage = true,
   crossedTitle = false,
+  eventTitleFuture = false,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const formattedIndex = String(index).padStart(2, "0");
@@ -102,15 +103,15 @@ const Card = ({
           className="card-title"
           style={{
             textDecoration: crossedTitle ? "line-through" : "none",
-            fontSize: crossedTitle ? "2rem" : "",
-            fontWeight: crossedTitle ? "300" : "",
+            fontSize: crossedTitle || eventTitleFuture ? "2rem" : "",
+            fontWeight: crossedTitle || eventTitleFuture ? "300" : "",
             cursor: "pointer",
           }}
           onClick={handleTitleClick} // Use the handler here
         >
           {title}
         </h2>
-        <span className="card-location">{location}</span>
+        {location ? <span className="card-location">{location}</span> : null}
 
         <div className="card-description">{description}</div>
         {urlPdf && (
@@ -120,6 +121,9 @@ const Card = ({
             </a>
           </button>
         )}
+        {secondTitle ? (
+          <p className="card-event-production">{secondTitle}</p>
+        ) : null}
         <p className="card-event-production">{secondTitle}</p>
       </div>
       {renderButton && (

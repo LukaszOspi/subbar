@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
+import Arrow from "./../assets/arrow.svg";
 import Card from "./atoms/Card";
 import Background from "./../assets/BG.svg";
 import Team from "./../assets/team.svg";
@@ -86,9 +86,18 @@ const AboutUs = () => {
       <div style={{ paddingTop: "0rem" }}>
         <WelcomeSection paddingTop="0rem" welcomePictureSrc={AboutUsPicture} />
       </div>
+      <div className="arrow-container" style={{ paddingBottom: "25rem" }}>
+        <img src={Arrow} alt="arrow down" className="arrow" />
+      </div>
       <div className="about-us about-us-container">
         <div className="about-us-text">
-          <div style={{ fontWeight: "100", paddingBottom: "10rem" }}>
+          <div
+            style={{
+              fontWeight: "100",
+              paddingBottom: "30rem",
+              fontSize: "1.2rem",
+            }}
+          >
             Welcome to Sub_Bar, a creative environment based on subfrequencies
             and vibrations, and a meeting point between hearing and deaf
             cultures. We empower artists, businesses, and organizations
@@ -104,64 +113,72 @@ const AboutUs = () => {
 
           <div
             style={{
-              paddingBottom: "10rem",
+              paddingBottom: "18rem",
+              paddingTop: "10rem",
               display: "flex",
               flexDirection: "column",
+              fontSize: "1.2rem",
             }}
           >
-            <span>SUB_BAR</span> <br></br>
-            <span>
-              through sub_bar we create a new art form and creative language
-              that uses subwoofers and tactile technology to interact through
-              the sense of touch. set in an aesthetic-artistic context, sub_bar
-              aims to promote inclusion as an opportunity and a task for all of
-              us.
-            </span>
-            <br></br>
-            <span>
-              sub frequencies are low-frequency sounds, that are mainly
-              perceived by the body and our nervous system rather than our ears:
-              differently than sound, they are not directional (left or right,
-              front or back), and they trigger a sense of full immersion.
-            </span>
-            <br></br>
-            <span>
-              low frequencies stimulation is not a novel field, in fact, its
-              beneficial effect has been clinically studied over the last two
-              decades.
-            </span>
-            <br></br>
-            <span>
-              this physical and aesthetic experience triggers a sense that has
-              always been in the background, growing its memories, curiosity,
-              and its language. with music in mind, sub_bar gives voice to that
-              background, through the vision of the best artists out there.
-            </span>
-            <br></br>
-            <br></br>
-            <span>ABOUT US</span> <br></br>
-            <span>
-              since 2021, we promote compositions and performances from hearing
-              and deaf artists who work with this new medium, creating
-              vibrations that can be felt throughout the body, to creating
-              unique and intense experiences.
-            </span>
-            <br></br>
-            <span>
-              <br></br>
-              we took inspiration from music education and multisensory research
-              to establish a new creative language, and after hosting regular
-              events in Lisbon, Berlin, Leipzig, and Köln, we are about to
-              launch sub_bar in the rest of Europe, creating even more
-              possibilities to connect, create, and perform.
-            </span>
-            <br></br>
+            <div
+              style={{
+                fontSize: "2rem",
+                fontWeight: "500",
+                paddingBottom: "18rem",
+              }}
+            >
+              A PIONEERING EXPERIENCE AT THE INTERSECTION <br></br>BETWEEN
+              MUSIC, HAPTIC AND FULL IMMERSION.
+            </div>
+            <div className="arrow-container" style={{ paddingBottom: "25rem" }}>
+              <img src={Arrow} alt="arrow down" className="arrow" />
+            </div>
+            <div style={{ paddingBottom: "45rem" }}>
+              we create a new art form and creative language that uses
+              subwoofers and tactile technology to interact through the sense of
+              touch. Set in an aesthetic-artistic context, Sub_Bar aims to
+              promote inclusion as an opportunity and a task for all of us. Sub
+              frequencies are low-frequency sounds, that are mainly perceived by
+              the body rather than our ears: differently than sound, they are
+              not directional (left or right, front or back), and they trigger a
+              sense of full immersion. Low frequencies stimulation is not a
+              novel field, in fact, its beneficial effect has been clinically
+              studied over the last two decades. This physical and aesthetic
+              experience triggers a sense that has always been in the
+              background, growing its memories, curiosity, and its language.
+              With music in mind, Sub_bar gives voice to that background,
+              through the vision of the best artists out there.
+            </div>
+            <div
+              style={{
+                fontSize: "2rem",
+                fontWeight: "500",
+                paddingBottom: "20rem",
+              }}
+            >
+              PROJECT BY EUFONIA
+            </div>
+            <div className="arrow-container" style={{ paddingBottom: "30rem" }}>
+              <img src={Arrow} alt="arrow down" className="arrow" />
+            </div>
+            <div>
+              we are eufonia - eufonia is an interdisciplinary platform that
+              explores the relationship between art, science and culture through
+              the medium of sound. since 2021, we promote compositions and
+              performances from hearing and deaf artists who work with this new
+              medium, creating vibrations that can be felt throughout the body,
+              to creating unique and intense experiences.we took inspiration
+              from music education and multisensory research to establish a new
+              creative language, and after hosting regular events in Lisbon,
+              Berlin, Leipzig, and Köln, we are about to launch sub_bar in the
+              rest of Europe, creating even more possibilities to connect,
+              create, and perform.
+            </div>
           </div>
         </div>
-        <div>
-          <img src={Team} alt="Team" />
-        </div>
+
         <div className="about-us-team">
+          <img src={Team} alt="Team" style={{ width: "100%" }} />
           {loading ? (
             <div>Loading...</div>
           ) : error ? (

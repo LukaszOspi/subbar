@@ -5,6 +5,8 @@ import ProjectsLogo from "./../assets/latest_projects.svg";
 import Past from "../assets/past.svg";
 import Upcoming from "../assets/upcoming.svg";
 import Modal from "./atoms/Modal"; // Import the Modal component
+import Academy from "./../assets/academy.svg";
+import WelcomeSection from "./atoms/WelcomeSection";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const LatestProjects = () => {
@@ -89,9 +91,23 @@ const LatestProjects = () => {
   return (
     <>
       <div className="latest-projects-container">
+        <div className="academy">
+          <img src={Academy} alt="academy" />
+          <WelcomeSection
+            welcomeParagraph={
+              "sub_bar is launching an invitation for hard of hearing and deaf people to join sub_bar academy, in lisbon, starting in october."
+            }
+            readMoreLink="/academy"
+            readMoreText="SUB_BAR ACADEMY"
+          />
+          <button>
+            <a href="/opencall"> OPEN CALL </a>
+          </button>
+        </div>
         <div className="latest-projects-title">
           <img src={ProjectsLogo} alt="Our Latest Projects" />
         </div>
+
         <div className="cards-container">
           <div className="cards-past">
             <img src={Past} alt="past" />
@@ -119,7 +135,8 @@ const LatestProjects = () => {
               .filter((item) => !item.fields.past)
               .map((item, index) => (
                 <Card
-                  crossedTitle={true}
+                  crossedTitle={false}
+                  eventTitleFuture={true}
                   isRichText={true}
                   number={false}
                   key={index}

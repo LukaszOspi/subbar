@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
+import Arrow from "./../assets/arrow.svg";
 import Card from "./atoms/Card";
 import Background from "./../assets/BG.svg";
 import Teachers from "./../assets/teachers.svg";
@@ -84,32 +84,37 @@ const AboutUs = () => {
   return (
     <>
       <div style={{ paddingTop: "0rem" }}>
-        <WelcomeSection
-          paddingTop="0rem"
-          welcomePictureSrc={Academy}
-          welcomeParagraph="sub_bar academy is a music course for deaf and hard of hearing people, 
-            based on subfrequencies instead of sound. over 72 hours, our participants 
-            will learn how to compose and perform using this new creative medium,
-             choosing their instruments from a variety of options, both hardware 
-             and software."
-          readMoreLink="/opencall"
-          readMoreText="OPEN CALL"
-        />
+        <WelcomeSection paddingTop="0rem" welcomePictureSrc={Academy} />
+        <div className="arrow-container" style={{ paddingBottom: "25rem" }}>
+          <img src={Arrow} alt="arrow down" className="arrow" />
+        </div>
       </div>
       <div className="about-us about-us-container">
         <div className="about-us-text">
           <div style={{ fontWeight: "100", paddingBottom: "10rem" }}>
-            Welcome to Sub_Bar, a creative environment based on subfrequencies
-            and vibrations, and a meeting point between hearing and deaf
-            cultures. We empower artists, businesses, and organizations
-            worldwide with the tools and expertise they need to create local
-            events, and we nurture their communities through educative programs,
-            strategic partnerships, and open calls. We promote an alternative,
-            intense, and trance-inducing format where the art of "listening" is
-            a task for the whole body, creating shared memories and inspiring
-            tomorrow's technologies. This community of artists and researchers
-            is held together by curiosity, innovation, and mutual learning, in
-            pursuit of the next beautiful thing.
+            sub_bar academy is a music course for deaf and hard of hearing
+            people, based on subfrequencies instead of sound. over 72 hours, our
+            participants will learn how to compose and perform using this new
+            creative medium, choosing their instruments from a variety of
+            options, both hardware and software. <br></br>
+            <br></br> We promote inclusion by committing to the absence of sound
+            as the main carrier of information in our artwork; artworks can
+            create sound, in fact, the higher subfrequencies are hearable, but
+            the sense of touch should always be enough to grasp the artistic
+            message in its integrity.
+            <br></br>
+            <br></br>
+            We will launch a call for hearing impaired and deaf people (18-40
+            years old) to join our Sub_Bar Academy in Lisbon, Berlin and Vienna.
+            <br></br>
+            Previous experience in music or art is NOT required.
+            <br></br>
+            <br></br>
+          </div>
+          <div style={{ paddingBottom: "30rem" }}>
+            <button>
+              <a href="/opencall"> OPEN CALL </a>
+            </button>
           </div>
 
           <div
@@ -117,55 +122,93 @@ const AboutUs = () => {
               paddingBottom: "10rem",
               display: "flex",
               flexDirection: "column",
+              fontWeight: "500",
+              fontSize: "1.2rem",
             }}
           >
-            <span>SUB_BAR</span> <br></br>
-            <span>
-              through sub_bar we create a new art form and creative language
-              that uses subwoofers and tactile technology to interact through
-              the sense of touch. set in an aesthetic-artistic context, sub_bar
-              aims to promote inclusion as an opportunity and a task for all of
-              us.
-            </span>
-            <br></br>
-            <span>
-              sub frequencies are low-frequency sounds, that are mainly
-              perceived by the body and our nervous system rather than our ears:
-              differently than sound, they are not directional (left or right,
-              front or back), and they trigger a sense of full immersion.
-            </span>
-            <br></br>
-            <span>
-              low frequencies stimulation is not a novel field, in fact, its
-              beneficial effect has been clinically studied over the last two
-              decades.
-            </span>
-            <br></br>
-            <span>
-              this physical and aesthetic experience triggers a sense that has
-              always been in the background, growing its memories, curiosity,
-              and its language. with music in mind, sub_bar gives voice to that
-              background, through the vision of the best artists out there.
-            </span>
-            <br></br>
-            <br></br>
-            <span>ABOUT US</span> <br></br>
-            <span>
-              since 2021, we promote compositions and performances from hearing
-              and deaf artists who work with this new medium, creating
-              vibrations that can be felt throughout the body, to creating
-              unique and intense experiences.
-            </span>
-            <br></br>
-            <span>
+            <div
+              style={{
+                paddingBottom: "40rem",
+              }}
+            >
+              Sub_Bar Academy is a mixed format of residency and workshop, where
+              participants will learn by doing: during 72 hours, our
+              participants will learn how to use various instruments and tools
+              to create and perform using low vibrations (sub frequencies), both
+              individually and in groups. At the end, the participants will be
+              invited to create your own piece, to perform a collective show in
+              their city, and will have the possibility to enter our roster of
+              artists.
               <br></br>
-              we took inspiration from music education and multisensory research
-              to establish a new creative language, and after hosting regular
-              events in Lisbon, Berlin, Leipzig, and Köln, we are about to
-              launch sub_bar in the rest of Europe, creating even more
-              possibilities to connect, create, and perform.
-            </span>
-            <br></br>
+              <br></br>
+              <br></br>
+              Every participant will receive the equivalent of 1000€ in cash and
+              equipment, and we will provide sign language interpretation for
+              the workshops.
+            </div>
+            <div
+              style={{
+                paddingBottom: "20rem",
+                fontSize: "2rem",
+                fontWeight: "500",
+              }}
+            >
+              PROGRAM
+            </div>
+            <div className="arrow-container" style={{ paddingBottom: "25rem" }}>
+              <img src={Arrow} alt="arrow down" className="arrow" />
+            </div>
+            <div style={{ paddingBottom: "50rem" }}>
+              Our program is composed of theoretical classes and practical
+              experimentation hours, with an emphasis on artistic exploration.
+              The goal is to have an organic approach, driven by curiosity and
+              fun.
+              <br></br>
+              <br></br>
+              THEORETICAL CLASSES: <br></br>36 hours in person, 80% mandatory
+              attendance teaching on the use of software and hardware, twice a
+              week, with 3 hours per day (including breaks) for 6 weeks. (Some
+              study visits for recordings included during these hours.){" "}
+              <br></br> <br></br>
+              ARTISTIC EXPLORATION: <br></br>
+              Practical part of the course will last for 36 hours (80%
+              attendance is mandatory), where participants will have freedom and
+              autonomy. During this time, participants will be encouraged to
+              create compositions based on a weekly theme, such as synthesizers,
+              effects, among others. Teachers will be available to supervise the
+              first independent sessions, and after these, they will be
+              available through online communication if participants need
+              assistance. Participants will receive a free license of Ableton
+              Live Suite, and a SubPac haptic vests.
+              <br></br>
+              <br></br>
+              <br></br>
+              _Practical focus, using virtual and physical instruments;{" "}
+              <br></br>
+              _Use of Ableton Live as a sequencer; <br></br> _Creation of a
+              Sub_Bar virtual instrument kit and demonstration of its operation;
+              <br></br>_Offer of physical controllers, such as the AKAI MPK Mini
+              MK3 or similar; <br></br> _Use of the Musikraken application,
+              which turns the mobile phone into a MIDI controller, allowing
+              modulation of sound through the camera and gyroscope; <br></br>{" "}
+              _Use of a SubPac Vest during the course, for a more complete
+              experience; <br></br>_Approach to topics related to the neurology
+              and sociology of music; <br></br>_Presentation of music education
+              concepts, such as cadence, polyrhythm, and sound design; <br></br>{" "}
+              _Inclusion of modules on rhythm and cultures.
+            </div>
+            <div>
+              The Sub_Bar Academy project is supported by the European Union,
+              and will be accompanied by a scientific study developed by the
+              Faculty of Psychology of the University of Lisbon (FPUL) and later
+              published in open access.
+            </div>
+
+            <div style={{ paddingBottom: "30rem", paddingTop: "5rem" }}>
+              <button>
+                <a href="/contact"> APPLY </a>
+              </button>
+            </div>
           </div>
         </div>
         <div>
