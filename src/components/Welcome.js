@@ -12,7 +12,7 @@ const Welcome = () => {
         with sub_bar, eufonia launches a pioneering series of events exploring music, 
         subfrequencies and the haptic sense, a space that invites everyone to meet, 
         interact and experience music in an innovative, inclusive, and immersive way"
-        readMoreLink="/about"
+        buttonLink="/about"
         videoId="cTn_B2nEObI"
       />
       <LatestProjects />

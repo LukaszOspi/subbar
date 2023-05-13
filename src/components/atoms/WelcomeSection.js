@@ -5,8 +5,10 @@ import YouTubeVideo from "./YouTubeVideo";
 const WelcomeSection = ({
   welcomePictureSrc,
   welcomeParagraph,
-  readMoreLink,
-  readMoreText = "READ MORE",
+  buttonLink,
+  buttonText = "READ MORE",
+  buttonLink2,
+  buttonText2,
   videoId,
   paddingTop,
 }) => {
@@ -24,18 +26,28 @@ const WelcomeSection = ({
         )}
       </div>
 
-      {(welcomeParagraph || readMoreLink || videoId) && (
+      {(welcomeParagraph || buttonLink || videoId) && (
         <div
           className="welcome-second-container"
           style={{ paddingTop: paddingTop }}
         >
-          {(welcomeParagraph || readMoreLink) && (
+          {(welcomeParagraph || buttonLink) && (
             <div className="welcome-second-container-left">
               {welcomeParagraph && <p>{welcomeParagraph}</p>}
-              {readMoreLink && (
-                <button onClick={() => (window.location.href = readMoreLink)}>
-                  {readMoreText}
-                </button>
+              {buttonLink && (
+                <div style={{ marginTop: "2rem" }}>
+                  <button onClick={() => (window.location.href = buttonLink)}>
+                    {buttonText}
+                  </button>
+                </div>
+              )}
+
+              {buttonLink2 && (
+                <div style={{ marginTop: "2rem" }}>
+                  <button onClick={() => (window.location.href = buttonLink)}>
+                    {buttonText2}
+                  </button>
+                </div>
               )}
             </div>
           )}

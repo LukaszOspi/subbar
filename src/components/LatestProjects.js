@@ -97,12 +97,11 @@ const LatestProjects = () => {
             welcomeParagraph={
               "sub_bar is launching an invitation for hard of hearing and deaf people to join sub_bar academy, in lisbon, starting in october."
             }
-            readMoreLink="/academy"
-            readMoreText="SUB_BAR ACADEMY"
+            buttonLink="/academy"
+            buttonText="SUB_BAR ACADEMY"
+            buttonLink2="/opencall"
+            buttonText2="OPEN CALL"
           />
-          <button>
-            <a href="/opencall"> OPEN CALL </a>
-          </button>
         </div>
         <div className="latest-projects-title">
           <img src={ProjectsLogo} alt="Our Latest Projects" />
