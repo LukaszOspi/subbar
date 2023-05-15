@@ -121,9 +121,8 @@ const AboutUs = () => {
             }}
           >
             <div
+              className="about-us-header"
               style={{
-                fontSize: "4rem",
-                fontWeight: "700",
                 paddingBottom: "18rem",
               }}
             >
@@ -150,9 +149,8 @@ const AboutUs = () => {
               through the vision of the best artists out there.
             </div>
             <div
+              className="about-us-header"
               style={{
-                fontSize: "4rem",
-                fontWeight: "700",
                 paddingBottom: "20rem",
               }}
             >

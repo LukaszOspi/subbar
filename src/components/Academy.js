@@ -152,10 +152,9 @@ const AboutUs = () => {
               the workshops.
             </div>
             <div
+              className="about-us-header"
               style={{
                 paddingBottom: "20rem",
-                fontSize: "4rem",
-                fontWeight: "700",
               }}
             >
               PROGRAM
