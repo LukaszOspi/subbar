@@ -272,7 +272,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   padding-top: 15rem;
-  padding-bottom: 215rem;
+  padding-bottom: 15rem;
 }
 .cards-container {
   display: flex;
