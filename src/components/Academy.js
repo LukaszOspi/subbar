@@ -59,7 +59,7 @@ const AboutUs = () => {
           };
 
           const descriptionText = extractText(fields.description);
-          const titleText = extractText(fields.title);
+          const titleText = fields.title;
 
           return {
             ...item,
@@ -234,11 +234,7 @@ const AboutUs = () => {
                 <React.Fragment key={index}>
                   <Card
                     image={imageUrl}
-                    title={
-                      fields.title && fields.title.content
-                        ? documentToReactComponents(fields.title)
-                        : ""
-                    }
+                    title={fields.title}
                     description={
                       fields.description && fields.description.content
                         ? documentToReactComponents(fields.description)
