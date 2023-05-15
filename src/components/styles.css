@@ -757,13 +757,14 @@ button:hover {
 
   .footer {
     padding: 0px;
+    padding-left: 5px;
   }
   .footer-top,
   .footer-middle,
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 5px;
+
     padding-right: 0px;
     width: 100%;
   }
