@@ -22,7 +22,7 @@ const AboutUs = () => {
         {
           params: {
             access_token: "Kx6XAVX4jQsvyUT0zSY-9jy_7iE6CC7eQ9t9Sh38yz8",
-            content_type: "academy",
+            content_type: "opencall",
           },
         }
       );
@@ -37,7 +37,12 @@ const AboutUs = () => {
         return imageObject;
       };
 
-      const images = createImageObject(response.data.includes.Asset);
+      const assets =
+        response.data.includes && response.data.includes.Asset
+          ? response.data.includes.Asset
+          : [];
+      const images = createImageObject(assets);
+
       setData(
         response.data.items.map((item) => {
           const fields = item.fields;
@@ -149,8 +154,8 @@ const AboutUs = () => {
             <div
               style={{
                 paddingBottom: "20rem",
-                fontSize: "2rem",
-                fontWeight: "500",
+                fontSize: "4rem",
+                fontWeight: "700",
               }}
             >
               PROGRAM
@@ -237,6 +242,14 @@ const AboutUs = () => {
                     description={
                       fields.description && fields.description.content
                         ? documentToReactComponents(fields.description)
+                        : ""
+                    }
+                    descriptionContinuation={
+                      fields.descriptionContinuation &&
+                      fields.descriptionContinuation.content
+                        ? documentToReactComponents(
+                            fields.descriptionContinuation
+                          )
                         : ""
                     }
                     url={fields.url}

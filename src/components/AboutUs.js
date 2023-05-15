@@ -122,8 +122,8 @@ const AboutUs = () => {
           >
             <div
               style={{
-                fontSize: "2rem",
-                fontWeight: "500",
+                fontSize: "4rem",
+                fontWeight: "700",
                 paddingBottom: "18rem",
               }}
             >
@@ -151,8 +151,8 @@ const AboutUs = () => {
             </div>
             <div
               style={{
-                fontSize: "2rem",
-                fontWeight: "500",
+                fontSize: "4rem",
+                fontWeight: "700",
                 paddingBottom: "20rem",
               }}
             >
