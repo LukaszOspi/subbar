@@ -767,6 +767,9 @@ button:hover {
     padding-right: 0px;
     width: 100%;
   }
+  .footer-top {
+    padding-left: 0px;
+  }
   .footer-top img {
     width: 100vw;
   }
